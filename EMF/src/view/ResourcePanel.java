@@ -51,14 +51,14 @@ public class ResourcePanel extends JPanel {
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
-					.addContainerGap())
+					.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 361, Short.MAX_VALUE)
+					.addGap(4))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+					.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		
@@ -115,10 +115,11 @@ public class ResourcePanel extends JPanel {
 					.addContainerGap()
 					.addGroup(gl_externalResourcePanel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_externalResourcePanel.createSequentialGroup()
-							.addComponent(lblEntrezLuriDe, GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-							.addGap(217))
-						.addComponent(textField, GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE))
-					.addContainerGap())
+							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+							.addGap(10))
+						.addGroup(gl_externalResourcePanel.createSequentialGroup()
+							.addComponent(lblEntrezLuriDe, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addGap(199))))
 		);
 		gl_externalResourcePanel.setVerticalGroup(
 			gl_externalResourcePanel.createParallelGroup(Alignment.LEADING)
@@ -127,7 +128,7 @@ public class ResourcePanel extends JPanel {
 					.addComponent(lblEntrezLuriDe, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(177, Short.MAX_VALUE))
+					.addContainerGap(166, Short.MAX_VALUE))
 		);
 		externalResourcePanel.setLayout(gl_externalResourcePanel);
 		btnFilePicker.addActionListener(new ActionListener() {

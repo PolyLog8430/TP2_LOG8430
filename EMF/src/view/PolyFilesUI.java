@@ -4,12 +4,16 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.GridLayout;
+import javax.swing.JSplitPane;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class PolyFilesUI {
 
 	private JFrame frame;
 	private ResourcePanel resourcePanel;
 	private CommandPanel commandPanel;
+	private JSplitPane splitPane;
 
 	/**
 	 * Launch the application.
@@ -42,13 +46,24 @@ public class PolyFilesUI {
 		frame = new JFrame();
 		frame.setBounds(0, 0, 1024, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
+		
+		splitPane = new JSplitPane();
 		
 		resourcePanel = new ResourcePanel(this);
-		frame.getContentPane().add(resourcePanel);
+		splitPane.setLeftComponent(resourcePanel);
 		
 		commandPanel = new CommandPanel(this);
-		frame.getContentPane().add(commandPanel);
+		splitPane.setRightComponent(commandPanel);
+		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(splitPane, GroupLayout.DEFAULT_SIZE, 1008, Short.MAX_VALUE)
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(splitPane, GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+		);
+		frame.getContentPane().setLayout(groupLayout);
 		
 	}
 	
