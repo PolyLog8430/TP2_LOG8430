@@ -10,7 +10,7 @@
       <!-- @generated tP2_LOG8430 -->
       <package
             uri="http://www.example.org/tP2_LOG8430"
-            class="tp2.tP2_LOG8430.TP2_LOG8430Package"
+            class="model.TP2_LOG8430Package"
             genModel="model/tP2_LOG8430.genmodel"/>
    </extension>
 
