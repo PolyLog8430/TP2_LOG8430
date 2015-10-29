@@ -11,6 +11,10 @@ Package tP2_LOG8430 <http://www.example.org/tP2_LOG8430>
     Attribute result : EString
     Reference resource : Resource
     Attribute codeResult : CommandCodeResult
+    Attribute name : EString
+    Attribute applyOnFolder : Boolean
+    Attribute applyOnFile : Boolean
+    Attribute applyOnURI : Boolean
     Operation execute() : void
 
   Class Resource
@@ -33,12 +37,6 @@ Package tP2_LOG8430 <http://www.example.org/tP2_LOG8430>
 
   Class Context
     Attribute autorun : Boolean
-
-  Class MetaCommand
-    Attribute name : EString
-    Attribute applyOnFile : Boolean
-    Attribute applyOnFlder : Boolean
-    Attribute applyOnURI : Boolean
 
   Class LocalContext -> Context
     Reference localresource : LocalResource

@@ -4,7 +4,7 @@
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>tP2_LOG8430.ecore</foreignModel>
-  <genPackages prefix="TP2_LOG8430" basePackage="tp2" disposableProviderFactory="true"
+  <genPackages prefix="tP2_LOG8430" basePackage="tp2" disposableProviderFactory="true"
       ecorePackage="tP2_LOG8430.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="tP2_LOG8430.ecore#//CommandCodeResult">
       <genEnumLiterals ecoreEnumLiteral="tP2_LOG8430.ecore#//CommandCodeResult/SUCCESS"/>
@@ -16,6 +16,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tP2_LOG8430.ecore#//ICommand/result"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tP2_LOG8430.ecore#//ICommand/resource"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tP2_LOG8430.ecore#//ICommand/codeResult"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tP2_LOG8430.ecore#//ICommand/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tP2_LOG8430.ecore#//ICommand/applyOnFolder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tP2_LOG8430.ecore#//ICommand/applyOnFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tP2_LOG8430.ecore#//ICommand/applyOnURI"/>
       <genOperations ecoreOperation="tP2_LOG8430.ecore#//ICommand/execute"/>
     </genClasses>
     <genClasses image="false" ecoreClass="tP2_LOG8430.ecore#//Resource">
@@ -35,12 +39,6 @@
     <genClasses ecoreClass="tP2_LOG8430.ecore#//Command3"/>
     <genClasses ecoreClass="tP2_LOG8430.ecore#//Context">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tP2_LOG8430.ecore#//Context/autorun"/>
-    </genClasses>
-    <genClasses ecoreClass="tP2_LOG8430.ecore#//MetaCommand">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tP2_LOG8430.ecore#//MetaCommand/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tP2_LOG8430.ecore#//MetaCommand/applyOnFile"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tP2_LOG8430.ecore#//MetaCommand/applyOnFlder"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tP2_LOG8430.ecore#//MetaCommand/applyOnURI"/>
     </genClasses>
     <genClasses ecoreClass="tP2_LOG8430.ecore#//LocalContext">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tP2_LOG8430.ecore#//LocalContext/localresource"/>
