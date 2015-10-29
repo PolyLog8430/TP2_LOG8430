@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.concurrent.ConcurrentHashMap;
 
 import controller.CommandAPI;
-import model.ICommand;
+import tp2.tP2_LOG8430.ICommand;
 
 /**
  * Command panel
@@ -251,14 +251,14 @@ public class CommandPanel extends JPanel implements Observer {
 							public void run() {
 
 								if(textToUpdate != null){
-									if(command.getCodeResult().equals(ICommand.CommandCodeResult.SUCCESS)){
+									//if(command.getCodeResult().equals(ICommand.CommandCodeResult.SUCCESS)){
 										textToUpdate.setText("<html><div>"+command.getResult()+"</div></html>");
 										textToUpdate.setForeground(Color.BLACK);
-									}
+									/*}
 									else{
 										textToUpdate.setText("<html><div>"+command.getResult()+"</div></html>");
 										textToUpdate.setForeground(Color.RED);
-									}
+									}*/
 								}
 							}
 						});

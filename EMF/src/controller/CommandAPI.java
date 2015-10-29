@@ -5,7 +5,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import model.ICommand;
+import tp2.tP2_LOG8430.ICommand;
 
 /**
  * Controller class
@@ -49,8 +49,8 @@ public class CommandAPI extends Observable {
 			if (commands.containsKey(commandName)) {
 				// Init command
 				ICommand command = commands.get(commandName).newInstance();
-				command.setFile(new File(path));
-				command.addObserver(response);
+				//command.setFile(new File(path));
+				//command.addObserver(response);
 
 				commandQueue.add(command);
 
