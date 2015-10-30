@@ -264,6 +264,7 @@ public class CommandPanel extends JPanel implements Observer {
 					}
 				}
 			});
+			System.out.println(commandName.getResult());
 		} catch (Exception e) {
 			textToUpdate.setText(e.getMessage());
 			textToUpdate.setForeground(Color.RED);

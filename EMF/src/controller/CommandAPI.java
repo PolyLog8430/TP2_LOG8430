@@ -11,7 +11,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceFactoryImpl;
 
+import tp2.tP2_LOG8430.Context;
 import tp2.tP2_LOG8430.ICommand;
 import tp2.tP2_LOG8430.tP2_LOG8430Package;
 
@@ -28,6 +30,7 @@ public class CommandAPI extends Observable {
 	private static final Object MUTEX_COMMANDS = new Object();
 
 	private final String COMMANDS_MODEL_FOLDER_PATH = "src/controller/commandsModel";
+	private final String PERSISTED_MODEL_FOLDER_PATH = "src/controller/persistedModel";
 	private final String MODEL_FILE_EXTENSION = "tp2_log8430";
 
 	public CommandAPI() {
@@ -113,6 +116,25 @@ public class CommandAPI extends Observable {
 //		}
 	}
 
+	public void saveContext(Context context) {
+		Resource.Factory.Registry registery = Resource.Factory.Registry.INSTANCE;
+		Map<String, Object> map = registery.getExtensionToFactoryMap();
+		map.put(MODEL_FILE_EXTENSION, new XMLResourceFactoryImpl());
+		ResourceSet resourceSet = new ResourceSetImpl();
+		URI uri = URI.createURI(PERSISTED_MODEL_FOLDER_PATH + "CONTEXT-" + System.currentTimeMillis() + "." + MODEL_FILE_EXTENSION);
+		Resource emfResource = resourceSet.createResource(uri);
+		emfResource.getContents().add(context);
+		try {
+			emfResource.save(Collections.EMPTY_MAP);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public Context loadContext(String path) {
+		Context context = null;
+		return context;
+	}
 
 	/**
 	 * Test if the invoker thread is running
