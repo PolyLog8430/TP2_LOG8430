@@ -63,11 +63,14 @@ public class tP2_LOG8430FactoryImpl extends EFactoryImpl implements tP2_LOG8430F
 		switch (eClass.getClassifierID()) {
 			case tP2_LOG8430Package.LOCAL_RESOURCE: return createLocalResource();
 			case tP2_LOG8430Package.EXTERNAL_RESOURCE: return createExternalResource();
-			case tP2_LOG8430Package.COMMAND1: return createCommand1();
-			case tP2_LOG8430Package.COMMAND2: return createCommand2();
-			case tP2_LOG8430Package.COMMAND3: return createCommand3();
+			case tP2_LOG8430Package.PAGE_TITLE: return createPageTitle();
+			case tP2_LOG8430Package.FOLDER_NAME: return createFolderName();
+			case tP2_LOG8430Package.FILE_NAME: return createFileName();
 			case tP2_LOG8430Package.LOCAL_CONTEXT: return createLocalContext();
 			case tP2_LOG8430Package.EXTERNAL_CONTEXT: return createExternalContext();
+			case tP2_LOG8430Package.PAGE_SIZE: return createPageSize();
+			case tP2_LOG8430Package.FILE_SIZE: return createFileSize();
+			case tP2_LOG8430Package.FOLDER_FULL_PATH: return createFolderFullPath();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -136,9 +139,9 @@ public class tP2_LOG8430FactoryImpl extends EFactoryImpl implements tP2_LOG8430F
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Command1 createCommand1() {
-		Command1Impl command1 = new Command1Impl();
-		return command1;
+	public PageTitle createPageTitle() {
+		PageTitleImpl pageTitle = new PageTitleImpl();
+		return pageTitle;
 	}
 
 	/**
@@ -146,9 +149,9 @@ public class tP2_LOG8430FactoryImpl extends EFactoryImpl implements tP2_LOG8430F
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Command2 createCommand2() {
-		Command2Impl command2 = new Command2Impl();
-		return command2;
+	public FolderName createFolderName() {
+		FolderNameImpl folderName = new FolderNameImpl();
+		return folderName;
 	}
 
 	/**
@@ -156,9 +159,9 @@ public class tP2_LOG8430FactoryImpl extends EFactoryImpl implements tP2_LOG8430F
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Command3 createCommand3() {
-		Command3Impl command3 = new Command3Impl();
-		return command3;
+	public FileName createFileName() {
+		FileNameImpl fileName = new FileNameImpl();
+		return fileName;
 	}
 
 	/**
@@ -179,6 +182,36 @@ public class tP2_LOG8430FactoryImpl extends EFactoryImpl implements tP2_LOG8430F
 	public ExternalContext createExternalContext() {
 		ExternalContextImpl externalContext = new ExternalContextImpl();
 		return externalContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PageSize createPageSize() {
+		PageSizeImpl pageSize = new PageSizeImpl();
+		return pageSize;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FileSize createFileSize() {
+		FileSizeImpl fileSize = new FileSizeImpl();
+		return fileSize;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FolderFullPath createFolderFullPath() {
+		FolderFullPathImpl folderFullPath = new FolderFullPathImpl();
+		return folderFullPath;
 	}
 
 	/**

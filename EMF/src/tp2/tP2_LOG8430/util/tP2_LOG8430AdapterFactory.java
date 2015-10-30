@@ -84,16 +84,16 @@ public class tP2_LOG8430AdapterFactory extends AdapterFactoryImpl {
 				return createExternalResourceAdapter();
 			}
 			@Override
-			public Adapter caseCommand1(Command1 object) {
-				return createCommand1Adapter();
+			public Adapter casePageTitle(PageTitle object) {
+				return createPageTitleAdapter();
 			}
 			@Override
-			public Adapter caseCommand2(Command2 object) {
-				return createCommand2Adapter();
+			public Adapter caseFolderName(FolderName object) {
+				return createFolderNameAdapter();
 			}
 			@Override
-			public Adapter caseCommand3(Command3 object) {
-				return createCommand3Adapter();
+			public Adapter caseFileName(FileName object) {
+				return createFileNameAdapter();
 			}
 			@Override
 			public Adapter caseContext(Context object) {
@@ -106,6 +106,18 @@ public class tP2_LOG8430AdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseExternalContext(ExternalContext object) {
 				return createExternalContextAdapter();
+			}
+			@Override
+			public Adapter casePageSize(PageSize object) {
+				return createPageSizeAdapter();
+			}
+			@Override
+			public Adapter caseFileSize(FileSize object) {
+				return createFileSizeAdapter();
+			}
+			@Override
+			public Adapter caseFolderFullPath(FolderFullPath object) {
+				return createFolderFullPathAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -184,44 +196,44 @@ public class tP2_LOG8430AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tp2.tP2_LOG8430.Command1 <em>Command1</em>}'.
+	 * Creates a new adapter for an object of class '{@link tp2.tP2_LOG8430.PageTitle <em>Page Title</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tp2.tP2_LOG8430.Command1
+	 * @see tp2.tP2_LOG8430.PageTitle
 	 * @generated
 	 */
-	public Adapter createCommand1Adapter() {
+	public Adapter createPageTitleAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tp2.tP2_LOG8430.Command2 <em>Command2</em>}'.
+	 * Creates a new adapter for an object of class '{@link tp2.tP2_LOG8430.FolderName <em>Folder Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tp2.tP2_LOG8430.Command2
+	 * @see tp2.tP2_LOG8430.FolderName
 	 * @generated
 	 */
-	public Adapter createCommand2Adapter() {
+	public Adapter createFolderNameAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tp2.tP2_LOG8430.Command3 <em>Command3</em>}'.
+	 * Creates a new adapter for an object of class '{@link tp2.tP2_LOG8430.FileName <em>File Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tp2.tP2_LOG8430.Command3
+	 * @see tp2.tP2_LOG8430.FileName
 	 * @generated
 	 */
-	public Adapter createCommand3Adapter() {
+	public Adapter createFileNameAdapter() {
 		return null;
 	}
 
@@ -264,6 +276,48 @@ public class tP2_LOG8430AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExternalContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tp2.tP2_LOG8430.PageSize <em>Page Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tp2.tP2_LOG8430.PageSize
+	 * @generated
+	 */
+	public Adapter createPageSizeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tp2.tP2_LOG8430.FileSize <em>File Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tp2.tP2_LOG8430.FileSize
+	 * @generated
+	 */
+	public Adapter createFileSizeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tp2.tP2_LOG8430.FolderFullPath <em>Folder Full Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tp2.tP2_LOG8430.FolderFullPath
+	 * @generated
+	 */
+	public Adapter createFolderFullPathAdapter() {
 		return null;
 	}
 

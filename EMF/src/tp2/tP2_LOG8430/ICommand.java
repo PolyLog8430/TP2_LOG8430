@@ -215,9 +215,9 @@ public interface ICommand extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model resourceIdDataType="org.eclipse.emf.ecore.xml.type.String"
 	 * @generated
 	 */
-	void execute();
+	void execute(String resourceId);
 
 } // ICommand

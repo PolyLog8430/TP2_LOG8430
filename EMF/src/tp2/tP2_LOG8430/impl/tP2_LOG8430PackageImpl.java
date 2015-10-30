@@ -18,16 +18,19 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
-import tp2.tP2_LOG8430.Command1;
-import tp2.tP2_LOG8430.Command2;
-import tp2.tP2_LOG8430.Command3;
 import tp2.tP2_LOG8430.CommandCodeResult;
 import tp2.tP2_LOG8430.Context;
 import tp2.tP2_LOG8430.ExternalContext;
 import tp2.tP2_LOG8430.ExternalResource;
+import tp2.tP2_LOG8430.FileName;
+import tp2.tP2_LOG8430.FileSize;
+import tp2.tP2_LOG8430.FolderFullPath;
+import tp2.tP2_LOG8430.FolderName;
 import tp2.tP2_LOG8430.ICommand;
 import tp2.tP2_LOG8430.LocalContext;
 import tp2.tP2_LOG8430.LocalResource;
+import tp2.tP2_LOG8430.PageSize;
+import tp2.tP2_LOG8430.PageTitle;
 import tp2.tP2_LOG8430.Resource;
 import tp2.tP2_LOG8430.tP2_LOG8430Factory;
 import tp2.tP2_LOG8430.tP2_LOG8430Package;
@@ -72,21 +75,21 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass command1EClass = null;
+	private EClass pageTitleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass command2EClass = null;
+	private EClass folderNameEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass command3EClass = null;
+	private EClass fileNameEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,6 +111,27 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 	 * @generated
 	 */
 	private EClass externalContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pageSizeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass fileSizeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass folderFullPathEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -271,7 +295,7 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICommand__Execute() {
+	public EOperation getICommand__Execute__String() {
 		return iCommandEClass.getEOperations().get(0);
 	}
 
@@ -361,8 +385,8 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCommand1() {
-		return command1EClass;
+	public EClass getPageTitle() {
+		return pageTitleEClass;
 	}
 
 	/**
@@ -370,8 +394,8 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCommand2() {
-		return command2EClass;
+	public EClass getFolderName() {
+		return folderNameEClass;
 	}
 
 	/**
@@ -379,8 +403,8 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCommand3() {
-		return command3EClass;
+	public EClass getFileName() {
+		return fileNameEClass;
 	}
 
 	/**
@@ -451,6 +475,33 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPageSize() {
+		return pageSizeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFileSize() {
+		return fileSizeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFolderFullPath() {
+		return folderFullPathEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getCommandCodeResult() {
 		return commandCodeResultEEnum;
 	}
@@ -509,7 +560,7 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 		createEAttribute(iCommandEClass, ICOMMAND__APPLY_ON_FOLDER);
 		createEAttribute(iCommandEClass, ICOMMAND__APPLY_ON_FILE);
 		createEAttribute(iCommandEClass, ICOMMAND__APPLY_ON_URI);
-		createEOperation(iCommandEClass, ICOMMAND___EXECUTE);
+		createEOperation(iCommandEClass, ICOMMAND___EXECUTE__STRING);
 
 		resourceEClass = createEClass(RESOURCE);
 		createEAttribute(resourceEClass, RESOURCE__NAME);
@@ -523,11 +574,11 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 		createEAttribute(externalResourceEClass, EXTERNAL_RESOURCE__TITLE);
 		createEAttribute(externalResourceEClass, EXTERNAL_RESOURCE__URI);
 
-		command1EClass = createEClass(COMMAND1);
+		pageTitleEClass = createEClass(PAGE_TITLE);
 
-		command2EClass = createEClass(COMMAND2);
+		folderNameEClass = createEClass(FOLDER_NAME);
 
-		command3EClass = createEClass(COMMAND3);
+		fileNameEClass = createEClass(FILE_NAME);
 
 		contextEClass = createEClass(CONTEXT);
 		createEAttribute(contextEClass, CONTEXT__AUTORUN);
@@ -538,6 +589,12 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 
 		externalContextEClass = createEClass(EXTERNAL_CONTEXT);
 		createEReference(externalContextEClass, EXTERNAL_CONTEXT__EXTERNALRESOURCE);
+
+		pageSizeEClass = createEClass(PAGE_SIZE);
+
+		fileSizeEClass = createEClass(FILE_SIZE);
+
+		folderFullPathEClass = createEClass(FOLDER_FULL_PATH);
 
 		// Create enums
 		commandCodeResultEEnum = createEEnum(COMMAND_CODE_RESULT);
@@ -580,11 +637,14 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 		// Add supertypes to classes
 		localResourceEClass.getESuperTypes().add(this.getResource());
 		externalResourceEClass.getESuperTypes().add(this.getResource());
-		command1EClass.getESuperTypes().add(this.getICommand());
-		command2EClass.getESuperTypes().add(this.getICommand());
-		command3EClass.getESuperTypes().add(this.getICommand());
+		pageTitleEClass.getESuperTypes().add(this.getICommand());
+		folderNameEClass.getESuperTypes().add(this.getICommand());
+		fileNameEClass.getESuperTypes().add(this.getICommand());
 		localContextEClass.getESuperTypes().add(this.getContext());
 		externalContextEClass.getESuperTypes().add(this.getContext());
+		pageSizeEClass.getESuperTypes().add(this.getICommand());
+		fileSizeEClass.getESuperTypes().add(this.getICommand());
+		folderFullPathEClass.getESuperTypes().add(this.getICommand());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(iCommandEClass, ICommand.class, "ICommand", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -596,7 +656,8 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 		initEAttribute(getICommand_ApplyOnFile(), theXMLTypePackage.getBoolean(), "applyOnFile", null, 0, 1, ICommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getICommand_ApplyOnURI(), theXMLTypePackage.getBoolean(), "applyOnURI", null, 0, 1, ICommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getICommand__Execute(), null, "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getICommand__Execute__String(), null, "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theXMLTypePackage.getString(), "resourceId", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(resourceEClass, Resource.class, "Resource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -610,11 +671,11 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 		initEAttribute(getExternalResource_Title(), ecorePackage.getEString(), "title", null, 0, 1, ExternalResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getExternalResource_Uri(), ecorePackage.getEString(), "uri", null, 0, 1, ExternalResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(command1EClass, Command1.class, "Command1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(pageTitleEClass, PageTitle.class, "PageTitle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(command2EClass, Command2.class, "Command2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(folderNameEClass, FolderName.class, "FolderName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(command3EClass, Command3.class, "Command3", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(fileNameEClass, FileName.class, "FileName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(contextEClass, Context.class, "Context", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContext_Autorun(), theXMLTypePackage.getBoolean(), "autorun", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -625,6 +686,12 @@ public class tP2_LOG8430PackageImpl extends EPackageImpl implements tP2_LOG8430P
 
 		initEClass(externalContextEClass, ExternalContext.class, "ExternalContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExternalContext_Externalresource(), this.getExternalResource(), null, "externalresource", null, 0, 1, ExternalContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(pageSizeEClass, PageSize.class, "PageSize", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(fileSizeEClass, FileSize.class, "FileSize", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(folderFullPathEClass, FolderFullPath.class, "FolderFullPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(commandCodeResultEEnum, CommandCodeResult.class, "CommandCodeResult");

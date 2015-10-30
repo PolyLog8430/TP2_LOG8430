@@ -92,24 +92,24 @@ public class tP2_LOG8430Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case tP2_LOG8430Package.COMMAND1: {
-				Command1 command1 = (Command1)theEObject;
-				T result = caseCommand1(command1);
-				if (result == null) result = caseICommand(command1);
+			case tP2_LOG8430Package.PAGE_TITLE: {
+				PageTitle pageTitle = (PageTitle)theEObject;
+				T result = casePageTitle(pageTitle);
+				if (result == null) result = caseICommand(pageTitle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case tP2_LOG8430Package.COMMAND2: {
-				Command2 command2 = (Command2)theEObject;
-				T result = caseCommand2(command2);
-				if (result == null) result = caseICommand(command2);
+			case tP2_LOG8430Package.FOLDER_NAME: {
+				FolderName folderName = (FolderName)theEObject;
+				T result = caseFolderName(folderName);
+				if (result == null) result = caseICommand(folderName);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case tP2_LOG8430Package.COMMAND3: {
-				Command3 command3 = (Command3)theEObject;
-				T result = caseCommand3(command3);
-				if (result == null) result = caseICommand(command3);
+			case tP2_LOG8430Package.FILE_NAME: {
+				FileName fileName = (FileName)theEObject;
+				T result = caseFileName(fileName);
+				if (result == null) result = caseICommand(fileName);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -130,6 +130,27 @@ public class tP2_LOG8430Switch<T> extends Switch<T> {
 				ExternalContext externalContext = (ExternalContext)theEObject;
 				T result = caseExternalContext(externalContext);
 				if (result == null) result = caseContext(externalContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case tP2_LOG8430Package.PAGE_SIZE: {
+				PageSize pageSize = (PageSize)theEObject;
+				T result = casePageSize(pageSize);
+				if (result == null) result = caseICommand(pageSize);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case tP2_LOG8430Package.FILE_SIZE: {
+				FileSize fileSize = (FileSize)theEObject;
+				T result = caseFileSize(fileSize);
+				if (result == null) result = caseICommand(fileSize);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case tP2_LOG8430Package.FOLDER_FULL_PATH: {
+				FolderFullPath folderFullPath = (FolderFullPath)theEObject;
+				T result = caseFolderFullPath(folderFullPath);
+				if (result == null) result = caseICommand(folderFullPath);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -198,47 +219,47 @@ public class tP2_LOG8430Switch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Command1</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Page Title</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Command1</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Page Title</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCommand1(Command1 object) {
+	public T casePageTitle(PageTitle object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Command2</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Folder Name</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Command2</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Folder Name</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCommand2(Command2 object) {
+	public T caseFolderName(FolderName object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Command3</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>File Name</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Command3</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>File Name</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCommand3(Command3 object) {
+	public T caseFileName(FileName object) {
 		return null;
 	}
 
@@ -284,6 +305,51 @@ public class tP2_LOG8430Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseExternalContext(ExternalContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Page Size</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Page Size</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePageSize(PageSize object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>File Size</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>File Size</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileSize(FileSize object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Folder Full Path</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Folder Full Path</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFolderFullPath(FolderFullPath object) {
 		return null;
 	}
 

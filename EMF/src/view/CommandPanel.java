@@ -249,7 +249,6 @@ public class CommandPanel extends JPanel implements Observer {
 						SwingUtilities.invokeLater(new Runnable() {
 							@Override
 							public void run() {
-
 								if(textToUpdate != null){
 									//if(command.getCodeResult().equals(ICommand.CommandCodeResult.SUCCESS)){
 										textToUpdate.setText("<html><div>"+command.getResult()+"</div></html>");

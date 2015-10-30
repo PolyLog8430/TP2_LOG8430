@@ -40,31 +40,31 @@ public interface tP2_LOG8430Factory extends EFactory {
 	ExternalResource createExternalResource();
 
 	/**
-	 * Returns a new object of class '<em>Command1</em>'.
+	 * Returns a new object of class '<em>Page Title</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Command1</em>'.
+	 * @return a new object of class '<em>Page Title</em>'.
 	 * @generated
 	 */
-	Command1 createCommand1();
+	PageTitle createPageTitle();
 
 	/**
-	 * Returns a new object of class '<em>Command2</em>'.
+	 * Returns a new object of class '<em>Folder Name</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Command2</em>'.
+	 * @return a new object of class '<em>Folder Name</em>'.
 	 * @generated
 	 */
-	Command2 createCommand2();
+	FolderName createFolderName();
 
 	/**
-	 * Returns a new object of class '<em>Command3</em>'.
+	 * Returns a new object of class '<em>File Name</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Command3</em>'.
+	 * @return a new object of class '<em>File Name</em>'.
 	 * @generated
 	 */
-	Command3 createCommand3();
+	FileName createFileName();
 
 	/**
 	 * Returns a new object of class '<em>Local Context</em>'.
@@ -83,6 +83,33 @@ public interface tP2_LOG8430Factory extends EFactory {
 	 * @generated
 	 */
 	ExternalContext createExternalContext();
+
+	/**
+	 * Returns a new object of class '<em>Page Size</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Page Size</em>'.
+	 * @generated
+	 */
+	PageSize createPageSize();
+
+	/**
+	 * Returns a new object of class '<em>File Size</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>File Size</em>'.
+	 * @generated
+	 */
+	FileSize createFileSize();
+
+	/**
+	 * Returns a new object of class '<em>Folder Full Path</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Folder Full Path</em>'.
+	 * @generated
+	 */
+	FolderFullPath createFolderFullPath();
 
 	/**
 	 * Returns the package supported by this factory.

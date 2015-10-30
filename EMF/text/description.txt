@@ -15,7 +15,7 @@ Package tP2_LOG8430 <http://www.example.org/tP2_LOG8430>
     Attribute applyOnFolder : Boolean
     Attribute applyOnFile : Boolean
     Attribute applyOnURI : Boolean
-    Operation execute() : void
+    Operation execute(String) : void
 
   Class Resource
     Attribute name : EString
@@ -29,11 +29,11 @@ Package tP2_LOG8430 <http://www.example.org/tP2_LOG8430>
     Attribute title : EString
     Attribute uri : EString
 
-  Class Command1 -> ICommand
+  Class PageTitle -> ICommand
 
-  Class Command2 -> ICommand
+  Class FolderName -> ICommand
 
-  Class Command3 -> ICommand
+  Class FileName -> ICommand
 
   Class Context
     Attribute autorun : Boolean
@@ -44,6 +44,12 @@ Package tP2_LOG8430 <http://www.example.org/tP2_LOG8430>
 
   Class ExternalContext -> Context
     Reference externalresource : ExternalResource
+
+  Class PageSize -> ICommand
+
+  Class FileSize -> ICommand
+
+  Class FolderFullPath -> ICommand
 
   Enum CommandCodeResult
     Literal SUCCESS = 0

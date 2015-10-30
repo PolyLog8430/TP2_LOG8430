@@ -148,7 +148,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICOMMAND___EXECUTE = 0;
+	int ICOMMAND___EXECUTE__STRING = 0;
 
 	/**
 	 * The number of operations of the '<em>ICommand</em>' class.
@@ -334,14 +334,14 @@ public interface tP2_LOG8430Package extends EPackage {
 	int EXTERNAL_RESOURCE_OPERATION_COUNT = RESOURCE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link tp2.tP2_LOG8430.impl.Command1Impl <em>Command1</em>}' class.
+	 * The meta object id for the '{@link tp2.tP2_LOG8430.impl.PageTitleImpl <em>Page Title</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see tp2.tP2_LOG8430.impl.Command1Impl
-	 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getCommand1()
+	 * @see tp2.tP2_LOG8430.impl.PageTitleImpl
+	 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getPageTitle()
 	 * @generated
 	 */
-	int COMMAND1 = 4;
+	int PAGE_TITLE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Result</b></em>' attribute.
@@ -350,7 +350,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND1__RESULT = ICOMMAND__RESULT;
+	int PAGE_TITLE__RESULT = ICOMMAND__RESULT;
 
 	/**
 	 * The feature id for the '<em><b>Resource</b></em>' containment reference.
@@ -359,7 +359,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND1__RESOURCE = ICOMMAND__RESOURCE;
+	int PAGE_TITLE__RESOURCE = ICOMMAND__RESOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Code Result</b></em>' attribute.
@@ -368,7 +368,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND1__CODE_RESULT = ICOMMAND__CODE_RESULT;
+	int PAGE_TITLE__CODE_RESULT = ICOMMAND__CODE_RESULT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -377,7 +377,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND1__NAME = ICOMMAND__NAME;
+	int PAGE_TITLE__NAME = ICOMMAND__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Apply On Folder</b></em>' attribute.
@@ -386,7 +386,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND1__APPLY_ON_FOLDER = ICOMMAND__APPLY_ON_FOLDER;
+	int PAGE_TITLE__APPLY_ON_FOLDER = ICOMMAND__APPLY_ON_FOLDER;
 
 	/**
 	 * The feature id for the '<em><b>Apply On File</b></em>' attribute.
@@ -395,7 +395,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND1__APPLY_ON_FILE = ICOMMAND__APPLY_ON_FILE;
+	int PAGE_TITLE__APPLY_ON_FILE = ICOMMAND__APPLY_ON_FILE;
 
 	/**
 	 * The feature id for the '<em><b>Apply On URI</b></em>' attribute.
@@ -404,16 +404,16 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND1__APPLY_ON_URI = ICOMMAND__APPLY_ON_URI;
+	int PAGE_TITLE__APPLY_ON_URI = ICOMMAND__APPLY_ON_URI;
 
 	/**
-	 * The number of structural features of the '<em>Command1</em>' class.
+	 * The number of structural features of the '<em>Page Title</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND1_FEATURE_COUNT = ICOMMAND_FEATURE_COUNT + 0;
+	int PAGE_TITLE_FEATURE_COUNT = ICOMMAND_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -422,26 +422,26 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND1___EXECUTE = ICOMMAND___EXECUTE;
+	int PAGE_TITLE___EXECUTE__STRING = ICOMMAND___EXECUTE__STRING;
 
 	/**
-	 * The number of operations of the '<em>Command1</em>' class.
+	 * The number of operations of the '<em>Page Title</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND1_OPERATION_COUNT = ICOMMAND_OPERATION_COUNT + 0;
+	int PAGE_TITLE_OPERATION_COUNT = ICOMMAND_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link tp2.tP2_LOG8430.impl.Command2Impl <em>Command2</em>}' class.
+	 * The meta object id for the '{@link tp2.tP2_LOG8430.impl.FolderNameImpl <em>Folder Name</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see tp2.tP2_LOG8430.impl.Command2Impl
-	 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getCommand2()
+	 * @see tp2.tP2_LOG8430.impl.FolderNameImpl
+	 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getFolderName()
 	 * @generated
 	 */
-	int COMMAND2 = 5;
+	int FOLDER_NAME = 5;
 
 	/**
 	 * The feature id for the '<em><b>Result</b></em>' attribute.
@@ -450,7 +450,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND2__RESULT = ICOMMAND__RESULT;
+	int FOLDER_NAME__RESULT = ICOMMAND__RESULT;
 
 	/**
 	 * The feature id for the '<em><b>Resource</b></em>' containment reference.
@@ -459,7 +459,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND2__RESOURCE = ICOMMAND__RESOURCE;
+	int FOLDER_NAME__RESOURCE = ICOMMAND__RESOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Code Result</b></em>' attribute.
@@ -468,7 +468,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND2__CODE_RESULT = ICOMMAND__CODE_RESULT;
+	int FOLDER_NAME__CODE_RESULT = ICOMMAND__CODE_RESULT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -477,7 +477,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND2__NAME = ICOMMAND__NAME;
+	int FOLDER_NAME__NAME = ICOMMAND__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Apply On Folder</b></em>' attribute.
@@ -486,7 +486,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND2__APPLY_ON_FOLDER = ICOMMAND__APPLY_ON_FOLDER;
+	int FOLDER_NAME__APPLY_ON_FOLDER = ICOMMAND__APPLY_ON_FOLDER;
 
 	/**
 	 * The feature id for the '<em><b>Apply On File</b></em>' attribute.
@@ -495,7 +495,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND2__APPLY_ON_FILE = ICOMMAND__APPLY_ON_FILE;
+	int FOLDER_NAME__APPLY_ON_FILE = ICOMMAND__APPLY_ON_FILE;
 
 	/**
 	 * The feature id for the '<em><b>Apply On URI</b></em>' attribute.
@@ -504,16 +504,16 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND2__APPLY_ON_URI = ICOMMAND__APPLY_ON_URI;
+	int FOLDER_NAME__APPLY_ON_URI = ICOMMAND__APPLY_ON_URI;
 
 	/**
-	 * The number of structural features of the '<em>Command2</em>' class.
+	 * The number of structural features of the '<em>Folder Name</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND2_FEATURE_COUNT = ICOMMAND_FEATURE_COUNT + 0;
+	int FOLDER_NAME_FEATURE_COUNT = ICOMMAND_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -522,26 +522,26 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND2___EXECUTE = ICOMMAND___EXECUTE;
+	int FOLDER_NAME___EXECUTE__STRING = ICOMMAND___EXECUTE__STRING;
 
 	/**
-	 * The number of operations of the '<em>Command2</em>' class.
+	 * The number of operations of the '<em>Folder Name</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND2_OPERATION_COUNT = ICOMMAND_OPERATION_COUNT + 0;
+	int FOLDER_NAME_OPERATION_COUNT = ICOMMAND_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link tp2.tP2_LOG8430.impl.Command3Impl <em>Command3</em>}' class.
+	 * The meta object id for the '{@link tp2.tP2_LOG8430.impl.FileNameImpl <em>File Name</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see tp2.tP2_LOG8430.impl.Command3Impl
-	 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getCommand3()
+	 * @see tp2.tP2_LOG8430.impl.FileNameImpl
+	 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getFileName()
 	 * @generated
 	 */
-	int COMMAND3 = 6;
+	int FILE_NAME = 6;
 
 	/**
 	 * The feature id for the '<em><b>Result</b></em>' attribute.
@@ -550,7 +550,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND3__RESULT = ICOMMAND__RESULT;
+	int FILE_NAME__RESULT = ICOMMAND__RESULT;
 
 	/**
 	 * The feature id for the '<em><b>Resource</b></em>' containment reference.
@@ -559,7 +559,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND3__RESOURCE = ICOMMAND__RESOURCE;
+	int FILE_NAME__RESOURCE = ICOMMAND__RESOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Code Result</b></em>' attribute.
@@ -568,7 +568,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND3__CODE_RESULT = ICOMMAND__CODE_RESULT;
+	int FILE_NAME__CODE_RESULT = ICOMMAND__CODE_RESULT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -577,7 +577,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND3__NAME = ICOMMAND__NAME;
+	int FILE_NAME__NAME = ICOMMAND__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Apply On Folder</b></em>' attribute.
@@ -586,7 +586,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND3__APPLY_ON_FOLDER = ICOMMAND__APPLY_ON_FOLDER;
+	int FILE_NAME__APPLY_ON_FOLDER = ICOMMAND__APPLY_ON_FOLDER;
 
 	/**
 	 * The feature id for the '<em><b>Apply On File</b></em>' attribute.
@@ -595,7 +595,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND3__APPLY_ON_FILE = ICOMMAND__APPLY_ON_FILE;
+	int FILE_NAME__APPLY_ON_FILE = ICOMMAND__APPLY_ON_FILE;
 
 	/**
 	 * The feature id for the '<em><b>Apply On URI</b></em>' attribute.
@@ -604,16 +604,16 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND3__APPLY_ON_URI = ICOMMAND__APPLY_ON_URI;
+	int FILE_NAME__APPLY_ON_URI = ICOMMAND__APPLY_ON_URI;
 
 	/**
-	 * The number of structural features of the '<em>Command3</em>' class.
+	 * The number of structural features of the '<em>File Name</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND3_FEATURE_COUNT = ICOMMAND_FEATURE_COUNT + 0;
+	int FILE_NAME_FEATURE_COUNT = ICOMMAND_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -622,16 +622,16 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND3___EXECUTE = ICOMMAND___EXECUTE;
+	int FILE_NAME___EXECUTE__STRING = ICOMMAND___EXECUTE__STRING;
 
 	/**
-	 * The number of operations of the '<em>Command3</em>' class.
+	 * The number of operations of the '<em>File Name</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND3_OPERATION_COUNT = ICOMMAND_OPERATION_COUNT + 0;
+	int FILE_NAME_OPERATION_COUNT = ICOMMAND_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link tp2.tP2_LOG8430.impl.ContextImpl <em>Context</em>}' class.
@@ -772,6 +772,306 @@ public interface tP2_LOG8430Package extends EPackage {
 	int EXTERNAL_CONTEXT_OPERATION_COUNT = CONTEXT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link tp2.tP2_LOG8430.impl.PageSizeImpl <em>Page Size</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see tp2.tP2_LOG8430.impl.PageSizeImpl
+	 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getPageSize()
+	 * @generated
+	 */
+	int PAGE_SIZE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Result</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_SIZE__RESULT = ICOMMAND__RESULT;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_SIZE__RESOURCE = ICOMMAND__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Code Result</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_SIZE__CODE_RESULT = ICOMMAND__CODE_RESULT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_SIZE__NAME = ICOMMAND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Apply On Folder</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_SIZE__APPLY_ON_FOLDER = ICOMMAND__APPLY_ON_FOLDER;
+
+	/**
+	 * The feature id for the '<em><b>Apply On File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_SIZE__APPLY_ON_FILE = ICOMMAND__APPLY_ON_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Apply On URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_SIZE__APPLY_ON_URI = ICOMMAND__APPLY_ON_URI;
+
+	/**
+	 * The number of structural features of the '<em>Page Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_SIZE_FEATURE_COUNT = ICOMMAND_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_SIZE___EXECUTE__STRING = ICOMMAND___EXECUTE__STRING;
+
+	/**
+	 * The number of operations of the '<em>Page Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_SIZE_OPERATION_COUNT = ICOMMAND_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link tp2.tP2_LOG8430.impl.FileSizeImpl <em>File Size</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see tp2.tP2_LOG8430.impl.FileSizeImpl
+	 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getFileSize()
+	 * @generated
+	 */
+	int FILE_SIZE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Result</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SIZE__RESULT = ICOMMAND__RESULT;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SIZE__RESOURCE = ICOMMAND__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Code Result</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SIZE__CODE_RESULT = ICOMMAND__CODE_RESULT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SIZE__NAME = ICOMMAND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Apply On Folder</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SIZE__APPLY_ON_FOLDER = ICOMMAND__APPLY_ON_FOLDER;
+
+	/**
+	 * The feature id for the '<em><b>Apply On File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SIZE__APPLY_ON_FILE = ICOMMAND__APPLY_ON_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Apply On URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SIZE__APPLY_ON_URI = ICOMMAND__APPLY_ON_URI;
+
+	/**
+	 * The number of structural features of the '<em>File Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SIZE_FEATURE_COUNT = ICOMMAND_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SIZE___EXECUTE__STRING = ICOMMAND___EXECUTE__STRING;
+
+	/**
+	 * The number of operations of the '<em>File Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SIZE_OPERATION_COUNT = ICOMMAND_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link tp2.tP2_LOG8430.impl.FolderFullPathImpl <em>Folder Full Path</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see tp2.tP2_LOG8430.impl.FolderFullPathImpl
+	 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getFolderFullPath()
+	 * @generated
+	 */
+	int FOLDER_FULL_PATH = 12;
+
+	/**
+	 * The feature id for the '<em><b>Result</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER_FULL_PATH__RESULT = ICOMMAND__RESULT;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER_FULL_PATH__RESOURCE = ICOMMAND__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Code Result</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER_FULL_PATH__CODE_RESULT = ICOMMAND__CODE_RESULT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER_FULL_PATH__NAME = ICOMMAND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Apply On Folder</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER_FULL_PATH__APPLY_ON_FOLDER = ICOMMAND__APPLY_ON_FOLDER;
+
+	/**
+	 * The feature id for the '<em><b>Apply On File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER_FULL_PATH__APPLY_ON_FILE = ICOMMAND__APPLY_ON_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Apply On URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER_FULL_PATH__APPLY_ON_URI = ICOMMAND__APPLY_ON_URI;
+
+	/**
+	 * The number of structural features of the '<em>Folder Full Path</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER_FULL_PATH_FEATURE_COUNT = ICOMMAND_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER_FULL_PATH___EXECUTE__STRING = ICOMMAND___EXECUTE__STRING;
+
+	/**
+	 * The number of operations of the '<em>Folder Full Path</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER_FULL_PATH_OPERATION_COUNT = ICOMMAND_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link tp2.tP2_LOG8430.CommandCodeResult <em>Command Code Result</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -779,7 +1079,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getCommandCodeResult()
 	 * @generated
 	 */
-	int COMMAND_CODE_RESULT = 10;
+	int COMMAND_CODE_RESULT = 13;
 
 	/**
 	 * The meta object id for the '<em>Queue</em>' data type.
@@ -789,7 +1089,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getQueue()
 	 * @generated
 	 */
-	int QUEUE = 11;
+	int QUEUE = 14;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -799,7 +1099,7 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 12;
+	int MAP = 15;
 
 
 	/**
@@ -890,14 +1190,14 @@ public interface tP2_LOG8430Package extends EPackage {
 	EAttribute getICommand_ApplyOnURI();
 
 	/**
-	 * Returns the meta object for the '{@link tp2.tP2_LOG8430.ICommand#execute() <em>Execute</em>}' operation.
+	 * Returns the meta object for the '{@link tp2.tP2_LOG8430.ICommand#execute(java.lang.String) <em>Execute</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Execute</em>' operation.
-	 * @see tp2.tP2_LOG8430.ICommand#execute()
+	 * @see tp2.tP2_LOG8430.ICommand#execute(java.lang.String)
 	 * @generated
 	 */
-	EOperation getICommand__Execute();
+	EOperation getICommand__Execute__String();
 
 	/**
 	 * Returns the meta object for class '{@link tp2.tP2_LOG8430.Resource <em>Resource</em>}'.
@@ -996,34 +1296,34 @@ public interface tP2_LOG8430Package extends EPackage {
 	EAttribute getExternalResource_Uri();
 
 	/**
-	 * Returns the meta object for class '{@link tp2.tP2_LOG8430.Command1 <em>Command1</em>}'.
+	 * Returns the meta object for class '{@link tp2.tP2_LOG8430.PageTitle <em>Page Title</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Command1</em>'.
-	 * @see tp2.tP2_LOG8430.Command1
+	 * @return the meta object for class '<em>Page Title</em>'.
+	 * @see tp2.tP2_LOG8430.PageTitle
 	 * @generated
 	 */
-	EClass getCommand1();
+	EClass getPageTitle();
 
 	/**
-	 * Returns the meta object for class '{@link tp2.tP2_LOG8430.Command2 <em>Command2</em>}'.
+	 * Returns the meta object for class '{@link tp2.tP2_LOG8430.FolderName <em>Folder Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Command2</em>'.
-	 * @see tp2.tP2_LOG8430.Command2
+	 * @return the meta object for class '<em>Folder Name</em>'.
+	 * @see tp2.tP2_LOG8430.FolderName
 	 * @generated
 	 */
-	EClass getCommand2();
+	EClass getFolderName();
 
 	/**
-	 * Returns the meta object for class '{@link tp2.tP2_LOG8430.Command3 <em>Command3</em>}'.
+	 * Returns the meta object for class '{@link tp2.tP2_LOG8430.FileName <em>File Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Command3</em>'.
-	 * @see tp2.tP2_LOG8430.Command3
+	 * @return the meta object for class '<em>File Name</em>'.
+	 * @see tp2.tP2_LOG8430.FileName
 	 * @generated
 	 */
-	EClass getCommand3();
+	EClass getFileName();
 
 	/**
 	 * Returns the meta object for class '{@link tp2.tP2_LOG8430.Context <em>Context</em>}'.
@@ -1098,6 +1398,36 @@ public interface tP2_LOG8430Package extends EPackage {
 	 * @generated
 	 */
 	EReference getExternalContext_Externalresource();
+
+	/**
+	 * Returns the meta object for class '{@link tp2.tP2_LOG8430.PageSize <em>Page Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Page Size</em>'.
+	 * @see tp2.tP2_LOG8430.PageSize
+	 * @generated
+	 */
+	EClass getPageSize();
+
+	/**
+	 * Returns the meta object for class '{@link tp2.tP2_LOG8430.FileSize <em>File Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>File Size</em>'.
+	 * @see tp2.tP2_LOG8430.FileSize
+	 * @generated
+	 */
+	EClass getFileSize();
+
+	/**
+	 * Returns the meta object for class '{@link tp2.tP2_LOG8430.FolderFullPath <em>Folder Full Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Folder Full Path</em>'.
+	 * @see tp2.tP2_LOG8430.FolderFullPath
+	 * @generated
+	 */
+	EClass getFolderFullPath();
 
 	/**
 	 * Returns the meta object for enum '{@link tp2.tP2_LOG8430.CommandCodeResult <em>Command Code Result</em>}'.
@@ -1226,7 +1556,7 @@ public interface tP2_LOG8430Package extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ICOMMAND___EXECUTE = eINSTANCE.getICommand__Execute();
+		EOperation ICOMMAND___EXECUTE__STRING = eINSTANCE.getICommand__Execute__String();
 
 		/**
 		 * The meta object literal for the '{@link tp2.tP2_LOG8430.impl.ResourceImpl <em>Resource</em>}' class.
@@ -1307,34 +1637,34 @@ public interface tP2_LOG8430Package extends EPackage {
 		EAttribute EXTERNAL_RESOURCE__URI = eINSTANCE.getExternalResource_Uri();
 
 		/**
-		 * The meta object literal for the '{@link tp2.tP2_LOG8430.impl.Command1Impl <em>Command1</em>}' class.
+		 * The meta object literal for the '{@link tp2.tP2_LOG8430.impl.PageTitleImpl <em>Page Title</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see tp2.tP2_LOG8430.impl.Command1Impl
-		 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getCommand1()
+		 * @see tp2.tP2_LOG8430.impl.PageTitleImpl
+		 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getPageTitle()
 		 * @generated
 		 */
-		EClass COMMAND1 = eINSTANCE.getCommand1();
+		EClass PAGE_TITLE = eINSTANCE.getPageTitle();
 
 		/**
-		 * The meta object literal for the '{@link tp2.tP2_LOG8430.impl.Command2Impl <em>Command2</em>}' class.
+		 * The meta object literal for the '{@link tp2.tP2_LOG8430.impl.FolderNameImpl <em>Folder Name</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see tp2.tP2_LOG8430.impl.Command2Impl
-		 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getCommand2()
+		 * @see tp2.tP2_LOG8430.impl.FolderNameImpl
+		 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getFolderName()
 		 * @generated
 		 */
-		EClass COMMAND2 = eINSTANCE.getCommand2();
+		EClass FOLDER_NAME = eINSTANCE.getFolderName();
 
 		/**
-		 * The meta object literal for the '{@link tp2.tP2_LOG8430.impl.Command3Impl <em>Command3</em>}' class.
+		 * The meta object literal for the '{@link tp2.tP2_LOG8430.impl.FileNameImpl <em>File Name</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see tp2.tP2_LOG8430.impl.Command3Impl
-		 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getCommand3()
+		 * @see tp2.tP2_LOG8430.impl.FileNameImpl
+		 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getFileName()
 		 * @generated
 		 */
-		EClass COMMAND3 = eINSTANCE.getCommand3();
+		EClass FILE_NAME = eINSTANCE.getFileName();
 
 		/**
 		 * The meta object literal for the '{@link tp2.tP2_LOG8430.impl.ContextImpl <em>Context</em>}' class.
@@ -1397,6 +1727,36 @@ public interface tP2_LOG8430Package extends EPackage {
 		 * @generated
 		 */
 		EReference EXTERNAL_CONTEXT__EXTERNALRESOURCE = eINSTANCE.getExternalContext_Externalresource();
+
+		/**
+		 * The meta object literal for the '{@link tp2.tP2_LOG8430.impl.PageSizeImpl <em>Page Size</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see tp2.tP2_LOG8430.impl.PageSizeImpl
+		 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getPageSize()
+		 * @generated
+		 */
+		EClass PAGE_SIZE = eINSTANCE.getPageSize();
+
+		/**
+		 * The meta object literal for the '{@link tp2.tP2_LOG8430.impl.FileSizeImpl <em>File Size</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see tp2.tP2_LOG8430.impl.FileSizeImpl
+		 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getFileSize()
+		 * @generated
+		 */
+		EClass FILE_SIZE = eINSTANCE.getFileSize();
+
+		/**
+		 * The meta object literal for the '{@link tp2.tP2_LOG8430.impl.FolderFullPathImpl <em>Folder Full Path</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see tp2.tP2_LOG8430.impl.FolderFullPathImpl
+		 * @see tp2.tP2_LOG8430.impl.tP2_LOG8430PackageImpl#getFolderFullPath()
+		 * @generated
+		 */
+		EClass FOLDER_FULL_PATH = eINSTANCE.getFolderFullPath();
 
 		/**
 		 * The meta object literal for the '{@link tp2.tP2_LOG8430.CommandCodeResult <em>Command Code Result</em>}' enum.

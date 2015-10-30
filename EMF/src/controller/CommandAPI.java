@@ -1,11 +1,19 @@
 package controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.WrappedException;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+
 import tp2.tP2_LOG8430.ICommand;
+import tp2.tP2_LOG8430.tP2_LOG8430Package;
 
 /**
  * Controller class
@@ -13,28 +21,67 @@ import tp2.tP2_LOG8430.ICommand;
  */
 public class CommandAPI extends Observable {
 
-	private Map<ICommand, Class<? extends ICommand>> commands = new ConcurrentHashMap<>();
-	private Queue<ICommand> commandQueue = new ConcurrentLinkedQueue<>();
-	private boolean invokerRunning;
-	private static final Object MUTEX_THREAD = new Object();
+	private Set<ICommand> commands;
+//	private Queue<ICommand> commandQueue = new ConcurrentLinkedQueue<>();
+//	private boolean invokerRunning;
+//	private static final Object MUTEX_THREAD = new Object();
 	private static final Object MUTEX_COMMANDS = new Object();
 
+	private final String COMMANDS_MODEL_FOLDER_PATH = "src/controller/commandsModel";
+	private final String MODEL_FILE_EXTENSION = "tp2_log8430";
+
 	public CommandAPI() {
-		 InvokerThread thread = new InvokerThread();
-		 invokerRunning = true;
-		 thread.start();
-		 
+//		 InvokerThread thread = new InvokerThread();
+//		 invokerRunning = true;
+//		 thread.start();
+		 initCommands();
 	}
 
 	/**
-	 * @return List of MetaCommand updated
+	 * Read the persisted commands model from the .tp2_log8430 files,
+	 * and initialize the set of commands.
+	 */
+	private void initCommands() {
+		// Start by initializing the model
+		tP2_LOG8430Package.eINSTANCE.eClass();
+
+		Resource.Factory.Registry registry = Resource.Factory.Registry.INSTANCE;
+		Map<String, Object> map = registry.getExtensionToFactoryMap();
+		
+		/* Register the file extension .tp2_log8430 with the XMIResourceFactoryImpl object.
+		 * 
+		 * We cannot use the XMLResourceFactoryImpl as the editor persisted the 
+		 * model using the XMIResourceFactoryImpl, and there is an incompatibility between the 2 classes
+		 * 
+		 * */
+		map.put(MODEL_FILE_EXTENSION, new XMIResourceFactoryImpl());
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource emfResource;
+		File commandsFolder = new File(COMMANDS_MODEL_FOLDER_PATH);
+		commands = new HashSet<>();
+		commandsFolder.list();
+		for (String commandModelFile : commandsFolder.list()) {
+			if (commandModelFile.endsWith("." + MODEL_FILE_EXTENSION)) {
+				try {
+					emfResource = resourceSet.getResource(URI.createURI(COMMANDS_MODEL_FOLDER_PATH + "/" + commandModelFile), true);
+					System.out.println(((ICommand) emfResource.getContents().get(0)).isApplyOnFile());
+					commands.add((ICommand) emfResource.getContents().get(0));
+				} catch (WrappedException e) {
+					e.printStackTrace();
+				}
+				System.out.println(commandModelFile);
+			}
+
+		}
+	}
+
+	/**
+	 * @return List of available Commands
 	 */
 	public Set<ICommand> getCommands() {
-		Set<ICommand> commandList;
 		synchronized (MUTEX_COMMANDS){
-			commandList = commands.keySet();
+			return commands;
 		}
-		return commandList;
 	}
 
 	/**
@@ -44,15 +91,16 @@ public class CommandAPI extends Observable {
 	 * @param response Observer to notify the result of command
 	 * @throws Exception
 	 */
-	public void addCommandToQueue(ICommand commandName, String path, Observer response) throws Exception {
+	public void addCommandToQueue(ICommand command, String path, Observer response) throws Exception {
 		synchronized (MUTEX_COMMANDS){
-			if (commands.containsKey(commandName)) {
+			if (commands.contains(command)) {
 				// Init command
-				ICommand command = commands.get(commandName).newInstance();
+//				ICommand command = commands.get(commandName).newInstance();
 				//command.setFile(new File(path));
-				//command.addObserver(response);
+//				command.addObserver(response);
 
-				commandQueue.add(command);
+//				commandQueue.add(command);
+				command.execute(path);
 
 			} else {
 				throw new Exception("Command does not exist.");
@@ -60,83 +108,38 @@ public class CommandAPI extends Observable {
 		}
 
 		// Wake up the invoker thread
-		synchronized (MUTEX_THREAD){
-			MUTEX_THREAD.notifyAll();
-		}
+//		synchronized (MUTEX_THREAD){
+//			MUTEX_THREAD.notifyAll();
+//		}
 	}
 
-	/**
-	 * Add MetaCommand and Class file to the list
-	 * @param commandName the MetaCommand class
-	 * @param commandClass the Class which extend ICommand
-	 */
-	public void addCommandClass(ICommand commandName, Class<? extends ICommand> commandClass){
-		System.out.println("Add command : "+commandName );
-
-		synchronized (MUTEX_COMMANDS){
-			commands.put(commandName, commandClass);
-			this.setChanged();
-			this.notifyObservers();
-		}
-	}
-
-	/**
-	 * Remove MetaCommand
-	 * @param commandName the MetaCommand to remove
-	 * @throws Exception
-	 */
-	public void removeCommandClass(ICommand commandName) throws Exception {
-		System.out.println("Remove command : "+commandName );
-
-		synchronized (MUTEX_COMMANDS){
-			if(commands.containsKey(commandName)){
-				commands.remove(commandName);
-			}
-			else{
-				throw new Exception("No command to remove");
-			}
-
-			this.setChanged();
-			this.notifyObservers();
-		}
-	}
-
-	/**
-	 * Execute the first command of the queue
-	 */
-	private void executeCommand(){
-		if(!commandQueue.isEmpty()){
-			ICommand cmdToExecute = commandQueue.poll();
-			cmdToExecute.execute();
-		}
-	}
 
 	/**
 	 * Test if the invoker thread is running
 	 * @return boolean
 	 */
-	public synchronized boolean isInvokerRunning(){
-		return invokerRunning;
-	}
+//	public synchronized boolean isInvokerRunning(){
+//		return invokerRunning;
+//	}
 
 	/**
 	 * InvokerThread to handle the command queue
 	 */
-	private class InvokerThread extends Thread{
-
-		@Override
-		public void run() {
-			while (isInvokerRunning()){
-				executeCommand();
-
-                if(commandQueue.isEmpty()){
-                    synchronized (MUTEX_THREAD){
-						try {
-							MUTEX_THREAD.wait();
-						} catch (InterruptedException ignored) {}
-					}
-                }
-			}
-		}
-	}
+//	private class InvokerThread extends Thread{
+//
+//		@Override
+//		public void run() {
+//			while (isInvokerRunning()){
+//				executeCommand();
+//
+//                if(commandQueue.isEmpty()){
+//                    synchronized (MUTEX_THREAD){
+//						try {
+//							MUTEX_THREAD.wait();
+//						} catch (InterruptedException ignored) {}
+//					}
+//                }
+//			}
+//		}
+//	}
 }

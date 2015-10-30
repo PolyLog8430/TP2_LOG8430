@@ -360,10 +360,11 @@ public abstract class ICommandImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * The logic of the command.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void execute() {
+	public void execute(String resourceId) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -509,8 +510,8 @@ public abstract class ICommandImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case tP2_LOG8430Package.ICOMMAND___EXECUTE:
-				execute();
+			case tP2_LOG8430Package.ICOMMAND___EXECUTE__STRING:
+				execute((String)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
