@@ -17,6 +17,8 @@ import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
+import tp2.tP2_LOG8430.Resource;
+
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
@@ -26,15 +28,11 @@ import javax.swing.JLabel;
 
 public class ResourcePanel extends JPanel {
 	
-	private JTree tree;
-	private FileTreeModel treeModel;
-	private JScrollPane scroll;
-	private JButton btnFilePicker;
-	private JFileChooser filePicker;
-	private File root = null;
-	private File selectedFile = null;
 	private PolyFilesUI parent;
-	private JTextField textField;
+	private LocalResourcePanel localResourcePanel;
+	private ExternalResourcePanel externalResourcePanel;
+	private IResourcePanel activeResourcePanel;
+	private JTabbedPane tabbedPane;
 
 	/**
 	 * Create the panel.
@@ -42,10 +40,7 @@ public class ResourcePanel extends JPanel {
 	public ResourcePanel(PolyFilesUI parent) {
 		this.parent = parent;
 		
-		filePicker = new JFileChooser();
-		filePicker.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -62,182 +57,27 @@ public class ResourcePanel extends JPanel {
 					.addContainerGap())
 		);
 		
-		JPanel localResourcePanel = new JPanel();
+		localResourcePanel = new LocalResourcePanel(this);
 		tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5>Ressource locale</body></html>", null, localResourcePanel, null);
 		
-		tree = new JTree();
-		tree.setModel(new DefaultTreeModel(null));
-		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-		tree.addTreeSelectionListener(new TreeSelectionListener() {
-			public void valueChanged(TreeSelectionEvent e) {
-				TreePath path = e.getNewLeadSelectionPath();
-				if(path != null) {
-					System.out.println(path.getLastPathComponent().toString());
-					setSelectedFile(new File(path.getLastPathComponent().toString()));
-				}
-			}
-		});
-		scroll = new JScrollPane(tree);
-		
-		btnFilePicker = new JButton("Choisir un répertoire ou un fichier");
-		GroupLayout gl_localResourcePanel = new GroupLayout(localResourcePanel);
-		gl_localResourcePanel.setHorizontalGroup(
-			gl_localResourcePanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_localResourcePanel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_localResourcePanel.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnFilePicker, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
-						.addComponent(scroll, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE))
-					.addContainerGap())
-		);
-		gl_localResourcePanel.setVerticalGroup(
-			gl_localResourcePanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_localResourcePanel.createSequentialGroup()
-					.addGap(5)
-					.addComponent(scroll, GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnFilePicker, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-					.addGap(6))
-		);
-		localResourcePanel.setLayout(gl_localResourcePanel);
-		
-		JPanel externalResourcePanel = new JPanel();
+		externalResourcePanel = new ExternalResourcePanel(this);
 		tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5>Ressource externe</body></html>", null, externalResourcePanel, null);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		
-		JLabel lblEntrezLuriDe = new JLabel("Entrez l'URI de la ressource externe :");
-		GroupLayout gl_externalResourcePanel = new GroupLayout(externalResourcePanel);
-		gl_externalResourcePanel.setHorizontalGroup(
-			gl_externalResourcePanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_externalResourcePanel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_externalResourcePanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_externalResourcePanel.createSequentialGroup()
-							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
-							.addGap(10))
-						.addGroup(gl_externalResourcePanel.createSequentialGroup()
-							.addComponent(lblEntrezLuriDe, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addGap(199))))
-		);
-		gl_externalResourcePanel.setVerticalGroup(
-			gl_externalResourcePanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_externalResourcePanel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblEntrezLuriDe, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(166, Short.MAX_VALUE))
-		);
-		externalResourcePanel.setLayout(gl_externalResourcePanel);
-		btnFilePicker.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				openFilePicker(e);
-			}
-		});
 		setLayout(groupLayout);
 	}
 	
-	private void openFilePicker(ActionEvent e) {
-		if(filePicker.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-			this.setRoot(filePicker.getSelectedFile());
-		}
-	}
-	
-	private void setRoot(File root) {
-		this.root = root;
-		this.updateTree();
-	}
-	
-	private void updateTree() {
-		if(this.root != null) {
-			this.treeModel = new FileTreeModel(this.root);
-			this.tree.setModel(this.treeModel);
-		}
-	}
-	
-	private void setSelectedFile(File file) {
-		this.selectedFile = file;
+	public void resourceUpdated() {
 		this.parent.getCommandPanel().clearResults();
 		this.parent.getCommandPanel().updateEnableButtons();
 	}
 	
+	// A supprimer quand getSelectedResource fonctionne.
 	public File getSelectedFile() {
-		return this.selectedFile;
-	}
-}
-
-class FileTreeModel implements TreeModel {
-	
-	private File root;
-	
-	public FileTreeModel(File root) {
-		this.root = root;
-	}
-
-	@Override
-	public Object getRoot() {
-		return this.root;
-	}
-
-	@Override
-	public Object getChild(Object parent, int index) {
-		String[] children = ((File)parent).list();
-		if ((children == null) || (index >= children.length)) {
-			return null;
-		}
-		else {
-			return new File((File) parent, children[index]);
-		}
-	}
-
-	@Override
-	public int getChildCount(Object parent) {
-		String[] children = ((File)parent).list();
-	    if (children == null) {
-	    	return 0;
-	    }
-	    else {
-	    	return children.length;
-	    }
-	}
-
-	@Override
-	public boolean isLeaf(Object node) {
-		return ((File)node).isFile();
-	}
-
-	@Override
-	public void valueForPathChanged(TreePath path, Object newValue) {
-		
-	}
-
-	@Override
-	public int getIndexOfChild(Object parent, Object child) {
-		String[] children = ((File)parent).list();
-	    if (children == null) {
-	    	return -1;
-	    }
-	    String childname = ((File)child).getName();
-	    for(int i=0; i<children.length; ++i) {
-	      if (childname.equals(children[i])) {
-	    	  return i;
-	      }
-	    }
-	    return -1;
-	}
-
-	@Override
-	public void addTreeModelListener(TreeModelListener l) {
-		
-	}
-
-	@Override
-	public void removeTreeModelListener(TreeModelListener l) {
-		
+		return this.localResourcePanel.getSelectedFile();
 	}
 	
-	
-	
+	public Resource getSelectedResource() {
+		return ((IResourcePanel)(tabbedPane.getComponentAt(tabbedPane.getSelectedIndex()))).getSelectedResource();
+	}
+
 }

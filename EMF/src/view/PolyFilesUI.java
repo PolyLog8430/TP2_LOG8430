@@ -7,6 +7,12 @@ import java.awt.GridLayout;
 import javax.swing.JSplitPane;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JMenu;
+import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
+import java.awt.event.InputEvent;
 
 public class PolyFilesUI {
 
@@ -14,6 +20,10 @@ public class PolyFilesUI {
 	private ResourcePanel resourcePanel;
 	private CommandPanel commandPanel;
 	private JSplitPane splitPane;
+	private JMenuBar menuBar;
+	private JMenu menuFile;
+	private JMenuItem menuFileLoad;
+	private JMenuItem menuFileSave;
 
 	/**
 	 * Launch the application.
@@ -64,6 +74,20 @@ public class PolyFilesUI {
 				.addComponent(splitPane, GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		
+		menuBar = new JMenuBar();
+		frame.setJMenuBar(menuBar);
+		
+		menuFile = new JMenu("Fichier");
+		menuBar.add(menuFile);
+		
+		menuFileLoad = new JMenuItem("Charger");
+		menuFileLoad.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, InputEvent.CTRL_MASK));
+		menuFile.add(menuFileLoad);
+		
+		menuFileSave = new JMenuItem("Enregistrer");
+		menuFileSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
+		menuFile.add(menuFileSave);
 		
 	}
 	

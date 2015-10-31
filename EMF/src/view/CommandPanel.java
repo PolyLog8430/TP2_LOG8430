@@ -47,7 +47,6 @@ public class CommandPanel extends JPanel implements Observer {
 	 * Mutex for commandButtons and commandResults
 	 */
 	private static final Object MUTEX_COMMANDS = new Object();
-	private JButton btnSauvegarder;
 
 	/**
 	 * Create the panel.
@@ -56,33 +55,27 @@ public class CommandPanel extends JPanel implements Observer {
 		this.parent = parent;
 		controller.addObserver(this);
 
-		createGUI();
+		this.initialize();
 		updateCommands(controller.getCommands());
 	}
 
 	/**
-	 * Create swing interface
-	 * Creating using Eclipse WindowBuilder
+	 * Initialize components for swing interface
 	 */
-	private void createGUI() {
+	private void initialize() {
 		panel = new JPanel();
-
 		JButton clearBtn = new JButton("Réinitialiser");
 		clearBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				clearResults();
 			}
 		});
-
 		checkboxAutorun = new JCheckBox("Exécution automatique");
 		checkboxAutorun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				sendAllCommands();
 			}
 		});
-		
-		btnSauvegarder = new JButton("Sauvegarder");
-
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -90,11 +83,9 @@ public class CommandPanel extends JPanel implements Observer {
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(panel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
-						.addGroup(groupLayout.createSequentialGroup()
+						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
 							.addComponent(clearBtn, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnSauvegarder, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
 							.addComponent(checkboxAutorun)))
 					.addContainerGap())
 		);
@@ -103,17 +94,13 @@ public class CommandPanel extends JPanel implements Observer {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(clearBtn, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-							.addComponent(checkboxAutorun)
-							.addComponent(btnSauvegarder, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(checkboxAutorun)
+						.addComponent(clearBtn, GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
 					.addContainerGap())
 		);
-		
-		buttonPanel = new JPanel();
-		
+		buttonPanel = new JPanel();	
 		resultPanel = new JPanel();
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
@@ -130,9 +117,7 @@ public class CommandPanel extends JPanel implements Observer {
 		);
 		buttonPanel.setLayout(new GridLayout(0, 1, 10, 10));
 		resultPanel.setLayout(new GridLayout(0, 1, 10, 10));
-		
 		panel.setLayout(gl_panel);
-
 		this.setLayout(groupLayout);
 	}
 
