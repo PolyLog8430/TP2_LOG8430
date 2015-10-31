@@ -2,8 +2,12 @@
  */
 package tp2.tP2_LOG8430.impl;
 
+import java.net.URL;
+import java.net.URLConnection;
+
 import org.eclipse.emf.ecore.EClass;
 
+import tp2.tP2_LOG8430.CommandCodeResult;
 import tp2.tP2_LOG8430.PageSize;
 import tp2.tP2_LOG8430.tP2_LOG8430Package;
 
@@ -32,6 +36,14 @@ public class PageSizeImpl extends ICommandImpl implements PageSize {
 	@Override
 	protected EClass eStaticClass() {
 		return tP2_LOG8430Package.Literals.PAGE_SIZE;
+	}
+	/**
+	 * Execute the command PageSize on the given resource.
+	 * @param resourceId The URI.
+	 */
+	@Override
+	public void execute(String resourceId) {
+		// TODO 
 	}
 
 } //PageSizeImpl
