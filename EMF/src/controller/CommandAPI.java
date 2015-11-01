@@ -2,8 +2,8 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.invoke.CallSite;
 import java.util.*;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
@@ -14,8 +14,13 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceFactoryImpl;
 
 import tp2.tP2_LOG8430.Context;
+import tp2.tP2_LOG8430.ExternalContext;
+import tp2.tP2_LOG8430.ExternalResource;
 import tp2.tP2_LOG8430.ICommand;
+import tp2.tP2_LOG8430.LocalContext;
+import tp2.tP2_LOG8430.LocalResource;
 import tp2.tP2_LOG8430.tP2_LOG8430Package;
+import tp2.tP2_LOG8430.impl.tP2_LOG8430FactoryImpl;
 
 /**
  * Controller class
@@ -24,9 +29,6 @@ import tp2.tP2_LOG8430.tP2_LOG8430Package;
 public class CommandAPI extends Observable {
 
 	private Set<ICommand> commands;
-//	private Queue<ICommand> commandQueue = new ConcurrentLinkedQueue<>();
-//	private boolean invokerRunning;
-//	private static final Object MUTEX_THREAD = new Object();
 	private static final Object MUTEX_COMMANDS = new Object();
 
 	private final String COMMANDS_MODEL_FOLDER_PATH = "src/controller/commandsModel";
@@ -34,10 +36,21 @@ public class CommandAPI extends Observable {
 	private final String MODEL_FILE_EXTENSION = "tp2_log8430";
 
 	public CommandAPI() {
-//		 InvokerThread thread = new InvokerThread();
-//		 invokerRunning = true;
-//		 thread.start();
-		 initCommands();
+		initCommands();
+
+
+		LocalContext c = tP2_LOG8430FactoryImpl.eINSTANCE.createLocalContext();
+		c.setAutorun(true);
+		c.setRoot("root");
+		LocalResource l = tP2_LOG8430FactoryImpl.eINSTANCE.createLocalResource();
+		l.setName("name");
+		l.setPath("path");
+		l.setPermission("permission");
+		l.setSize_mb(54);
+		c.setLocalresource(l);
+		saveContext(c);
+		loadContext(PERSISTED_MODEL_FOLDER_PATH + "/CONTEXT-1446339259964.tp2_log8430");
+
 	}
 
 	/**
@@ -50,7 +63,7 @@ public class CommandAPI extends Observable {
 
 		Resource.Factory.Registry registry = Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> map = registry.getExtensionToFactoryMap();
-		
+
 		/* Register the file extension .tp2_log8430 with the XMIResourceFactoryImpl object.
 		 * 
 		 * We cannot use the XMLResourceFactoryImpl as the editor persisted the 
@@ -72,7 +85,6 @@ public class CommandAPI extends Observable {
 				} catch (WrappedException e) {
 					e.printStackTrace();
 				}
-				System.out.println(commandModelFile);
 			}
 
 		}
@@ -96,72 +108,65 @@ public class CommandAPI extends Observable {
 	 */
 	public void addCommandToQueue(ICommand command, String path, Observer response) throws Exception {
 		synchronized (MUTEX_COMMANDS){
-			if (commands.contains(command)) {
-				// Init command
-//				ICommand command = commands.get(commandName).newInstance();
-				//command.setFile(new File(path));
-//				command.addObserver(response);
-
-//				commandQueue.add(command);
-				command.execute(path);
-
-			} else {
-				throw new Exception("Command does not exist.");
-			}
+			command.execute(path);
 		}
-
-		// Wake up the invoker thread
-//		synchronized (MUTEX_THREAD){
-//			MUTEX_THREAD.notifyAll();
-//		}
 	}
 
+	/**
+	 * Save the given context.
+	 * @param context
+	 */
 	public void saveContext(Context context) {
 		Resource.Factory.Registry registery = Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> map = registery.getExtensionToFactoryMap();
 		map.put(MODEL_FILE_EXTENSION, new XMLResourceFactoryImpl());
 		ResourceSet resourceSet = new ResourceSetImpl();
-		URI uri = URI.createURI(PERSISTED_MODEL_FOLDER_PATH + "CONTEXT-" + System.currentTimeMillis() + "." + MODEL_FILE_EXTENSION);
+		URI uri = URI.createURI(PERSISTED_MODEL_FOLDER_PATH + "/CONTEXT-" + System.currentTimeMillis() + "." + MODEL_FILE_EXTENSION);
 		Resource emfResource = resourceSet.createResource(uri);
-		emfResource.getContents().add(context);
+		if (context instanceof LocalContext) {
+			emfResource.getContents().add(((LocalContext)context).getLocalresource());
+		} else {
+			emfResource.getContents().add(((ExternalContext)context).getExternalresource());
+		}
 		try {
 			emfResource.save(Collections.EMPTY_MAP);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * Load the saved context from the given path.
+	 * @param path
+	 * @return
+	 */
 	public Context loadContext(String path) {
 		Context context = null;
+		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+		Map<String, Object> m = reg.getExtensionToFactoryMap();
+		m.put(MODEL_FILE_EXTENSION, new XMIResourceFactoryImpl());
+
+		// Obtain a new resource set
+		ResourceSet resSet = new ResourceSetImpl();
+
+		// Get the resource
+		Resource resource = resSet.getResource(URI.createURI(path), true);
+
+		// Get the first model element and cast it to the right type,
+		try {
+			tp2.tP2_LOG8430.Resource res = (tp2.tP2_LOG8430.Resource) resource.getContents().get(0);
+
+			if (res instanceof LocalResource) {
+				context = tP2_LOG8430FactoryImpl.eINSTANCE.createLocalContext();
+				((LocalContext)context).setLocalresource((LocalResource)res);
+			} else {
+				context = tP2_LOG8430FactoryImpl.eINSTANCE.createExternalContext();
+				((ExternalContext)context).setExternalresource((ExternalResource)res);
+			}
+		} catch (ClassCastException e) {
+			e.printStackTrace();
+		}
 		return context;
 	}
 
-	/**
-	 * Test if the invoker thread is running
-	 * @return boolean
-	 */
-//	public synchronized boolean isInvokerRunning(){
-//		return invokerRunning;
-//	}
-
-	/**
-	 * InvokerThread to handle the command queue
-	 */
-//	private class InvokerThread extends Thread{
-//
-//		@Override
-//		public void run() {
-//			while (isInvokerRunning()){
-//				executeCommand();
-//
-//                if(commandQueue.isEmpty()){
-//                    synchronized (MUTEX_THREAD){
-//						try {
-//							MUTEX_THREAD.wait();
-//						} catch (InterruptedException ignored) {}
-//					}
-//                }
-//			}
-//		}
-//	}
 }
