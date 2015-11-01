@@ -2,7 +2,6 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.invoke.CallSite;
 import java.util.*;
 
 import org.eclipse.emf.common.util.URI;
@@ -106,7 +105,7 @@ public class CommandAPI extends Observable {
 	 * @param response Observer to notify the result of command
 	 * @throws Exception
 	 */
-	public void addCommandToQueue(ICommand command, String path, Observer response) throws Exception {
+	public void addCommandToQueue(ICommand command, String path) throws Exception {
 		synchronized (MUTEX_COMMANDS){
 			command.execute(path);
 		}

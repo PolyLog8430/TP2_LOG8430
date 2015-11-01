@@ -11,21 +11,22 @@ import java.awt.event.ActionListener;
 import java.util.concurrent.ConcurrentHashMap;
 
 import controller.CommandAPI;
+import tp2.tP2_LOG8430.CommandCodeResult;
 import tp2.tP2_LOG8430.ICommand;
 
 /**
  * Command panel
- * Oberve the CommandAPI
+ * 
  */
 public class CommandPanel extends JPanel implements Observer {
 
 	/**
-	 * Correspondence into MetaCommand and JButton
+	 * Correspondence into Command and JButton
 	 */
 	private Map<ICommand, JButton> commandButtons = new ConcurrentHashMap<>();
 
 	/**
-	 * Correspondence into MetaCommand and JLabel
+	 * Correspondence into Command and JLabel
 	 */
 	private Map<ICommand, JLabel> commandResults = new ConcurrentHashMap<>();
 
@@ -226,29 +227,17 @@ public class CommandPanel extends JPanel implements Observer {
 	private void sendCommand(final ICommand commandName) {
 		final JLabel textToUpdate = commandResults.get(commandName);
 		try {
-			controller.addCommandToQueue(commandName, this.parent.getResourcePanel().getSelectedFile().getPath(), new Observer() {
-				@Override
-				public void update(Observable o, Object arg) {
-					if(o instanceof ICommand) {
-						final ICommand command = (ICommand) o;
-						SwingUtilities.invokeLater(new Runnable() {
-							@Override
-							public void run() {
-								if(textToUpdate != null){
-									//if(command.getCodeResult().equals(ICommand.CommandCodeResult.SUCCESS)){
-										textToUpdate.setText("<html><div>"+command.getResult()+"</div></html>");
-										textToUpdate.setForeground(Color.BLACK);
-									/*}
-									else{
-										textToUpdate.setText("<html><div>"+command.getResult()+"</div></html>");
-										textToUpdate.setForeground(Color.RED);
-									}*/
-								}
-							}
-						});
-					}
+			controller.addCommandToQueue(commandName, this.parent.getResourcePanel().getSelectedFile().getPath());
+			if(textToUpdate != null) {
+				if(commandName.getCodeResult().equals(CommandCodeResult.SUCCESS)) {
+					textToUpdate.setText("<html><div>"+commandName.getResult()+"</div></html>");
+					textToUpdate.setForeground(Color.BLACK);
 				}
-			});
+				else{
+					textToUpdate.setText("<html><div>"+commandName.getResult()+"</div></html>");
+					textToUpdate.setForeground(Color.RED);
+				}
+			}
 		} catch (Exception e) {
 			textToUpdate.setText(e.getMessage());
 			textToUpdate.setForeground(Color.RED);
