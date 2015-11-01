@@ -2,12 +2,7 @@
  */
 package tp2.tP2_LOG8430.impl;
 
-import java.net.URL;
-import java.net.URLConnection;
-
 import org.eclipse.emf.ecore.EClass;
-
-import tp2.tP2_LOG8430.CommandCodeResult;
 import tp2.tP2_LOG8430.PageSize;
 import tp2.tP2_LOG8430.tP2_LOG8430Package;
 

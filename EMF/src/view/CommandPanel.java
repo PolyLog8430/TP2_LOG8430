@@ -80,13 +80,13 @@ public class CommandPanel extends JPanel implements Observer {
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-							.addComponent(clearBtn, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(panel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(clearBtn, GroupLayout.PREFERRED_SIZE, 256, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
 							.addComponent(checkboxAutorun)))
 					.addContainerGap())
 		);
@@ -94,12 +94,12 @@ public class CommandPanel extends JPanel implements Observer {
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE)
+					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addComponent(checkboxAutorun)
-						.addComponent(clearBtn, GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
-					.addContainerGap())
+						.addComponent(clearBtn, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
+					.addGap(11))
 		);
 		buttonPanel = new JPanel();	
 		resultPanel = new JPanel();
@@ -113,8 +113,8 @@ public class CommandPanel extends JPanel implements Observer {
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addComponent(buttonPanel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-				.addComponent(resultPanel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+				.addComponent(buttonPanel, GroupLayout.PREFERRED_SIZE, 224, GroupLayout.PREFERRED_SIZE)
+				.addComponent(resultPanel, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 224, GroupLayout.PREFERRED_SIZE)
 		);
 		buttonPanel.setLayout(new GridLayout(0, 1, 10, 10));
 		resultPanel.setLayout(new GridLayout(0, 1, 10, 10));

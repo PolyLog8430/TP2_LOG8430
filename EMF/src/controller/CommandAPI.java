@@ -36,8 +36,7 @@ public class CommandAPI extends Observable {
 
 	public CommandAPI() {
 		initCommands();
-
-
+		/*
 		LocalContext c = tP2_LOG8430FactoryImpl.eINSTANCE.createLocalContext();
 		c.setAutorun(true);
 		c.setRoot("root");
@@ -49,6 +48,7 @@ public class CommandAPI extends Observable {
 		c.setLocalresource(l);
 		saveContext(c);
 		loadContext(PERSISTED_MODEL_FOLDER_PATH + "/CONTEXT-1446339259964.tp2_log8430");
+		*/
 
 	}
 
