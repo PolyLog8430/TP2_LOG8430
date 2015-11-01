@@ -129,21 +129,22 @@ public class CommandAPI extends Observable {
 		Context context = null;
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put(MODEL_FILE_EXTENSION, new XMIResourceFactoryImpl());
+		m.put(MODEL_FILE_EXTENSION, new XMLResourceFactoryImpl());
 
 		// Obtain a new resource set
 		ResourceSet resSet = new ResourceSetImpl();
 
 		// Get the resource
-		Resource resource = resSet.getResource(URI.createURI(path), true);
+		Resource emfResource = resSet.getResource(URI.createFileURI(path), true);
 
 		// Get the first model element and cast it to the right type,
 		try {
-			tp2.tP2_LOG8430.Resource res = (tp2.tP2_LOG8430.Resource) resource.getContents().get(0);
+			tp2.tP2_LOG8430.Resource res = (tp2.tP2_LOG8430.Resource) emfResource.getContents().get(0);
 
 			if (res instanceof LocalResource) {
 				context = tP2_LOG8430FactoryImpl.eINSTANCE.createLocalContext();
 				((LocalContext)context).setLocalresource((LocalResource)res);
+				((LocalContext)context).setRoot(((LocalResource)res).getPath());
 			} else {
 				context = tP2_LOG8430FactoryImpl.eINSTANCE.createExternalContext();
 				((ExternalContext)context).setExternalresource((ExternalResource)res);
