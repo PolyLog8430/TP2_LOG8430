@@ -6,13 +6,19 @@ import javax.swing.JFrame;
 import java.awt.GridLayout;
 import javax.swing.JSplitPane;
 import javax.swing.GroupLayout;
+import javax.swing.JFileChooser;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 import javax.swing.KeyStroke;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.awt.event.InputEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PolyFilesUI {
 
@@ -24,6 +30,7 @@ public class PolyFilesUI {
 	private JMenu menuFile;
 	private JMenuItem menuFileLoad;
 	private JMenuItem menuFileSave;
+	private JFileChooser filePicker;
 
 	/**
 	 * Launch the application.
@@ -57,6 +64,17 @@ public class PolyFilesUI {
 		frame.setBounds(0, 0, 1024, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		File filePickerRoot = new File("../controller/persistedModel");
+		if(filePickerRoot.exists()) {
+			filePicker = new JFileChooser(filePickerRoot);
+		}
+		else {
+			filePicker = new JFileChooser();
+		}
+		filePicker.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		FileNameExtensionFilter filter = new FileNameExtensionFilter(null, ".tp2_log8430");
+		filePicker.setFileFilter(filter);
+		
 		splitPane = new JSplitPane();
 		
 		resourcePanel = new ResourcePanel(this);
@@ -83,10 +101,20 @@ public class PolyFilesUI {
 		
 		menuFileLoad = new JMenuItem("Charger");
 		menuFileLoad.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, InputEvent.CTRL_MASK));
+		menuFileLoad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				openFilePicker(e);
+			}
+		});
 		menuFile.add(menuFileLoad);
 		
 		menuFileSave = new JMenuItem("Enregistrer");
 		menuFileSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
+		menuFileSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				save();
+			}
+		});
 		menuFile.add(menuFileSave);
 		
 	}
@@ -97,5 +125,15 @@ public class PolyFilesUI {
 	
 	public CommandPanel getCommandPanel() {
 		return this.commandPanel;
+	}
+	
+	private void openFilePicker(ActionEvent e) {
+		if(filePicker.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
+			this.commandPanel.load(filePicker.getSelectedFile().getPath());
+		}
+	}
+	
+	private void save() {
+		this.resourcePanel.save();
 	}
 }

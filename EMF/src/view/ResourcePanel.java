@@ -17,6 +17,7 @@ import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
+import tp2.tP2_LOG8430.Context;
 import tp2.tP2_LOG8430.Resource;
 
 import java.awt.event.ActionListener;
@@ -29,9 +30,8 @@ import javax.swing.JLabel;
 public class ResourcePanel extends JPanel {
 	
 	private PolyFilesUI parent;
-	private LocalResourcePanel localResourcePanel;
-	private ExternalResourcePanel externalResourcePanel;
-	private IResourcePanel activeResourcePanel;
+	private LocalResourceTab localResourceTab;
+	private ExternalResourceTab externalResourceTab;
 	private JTabbedPane tabbedPane;
 
 	/**
@@ -57,11 +57,11 @@ public class ResourcePanel extends JPanel {
 					.addContainerGap())
 		);
 		
-		localResourcePanel = new LocalResourcePanel(this);
-		tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5>Ressource locale</body></html>", null, localResourcePanel, null);
+		localResourceTab = new LocalResourceTab(this);
+		tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5>Ressource locale</body></html>", null, localResourceTab, null);
 		
-		externalResourcePanel = new ExternalResourcePanel(this);
-		tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5>Ressource externe</body></html>", null, externalResourcePanel, null);
+		externalResourceTab = new ExternalResourceTab(this);
+		tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5>Ressource externe</body></html>", null, externalResourceTab, null);
 		
 		setLayout(groupLayout);
 	}
@@ -71,13 +71,33 @@ public class ResourcePanel extends JPanel {
 		this.parent.getCommandPanel().updateEnableButtons();
 	}
 	
-	// A supprimer quand getSelectedResource fonctionne.
-	public File getSelectedFile() {
-		return this.localResourcePanel.getSelectedFile();
+	public String getResourceText() {
+		return this.getActiveResourceTab().getResourceText();
+	}
+	
+	public boolean resourceIsURI() {
+		return this.getActiveResourceTab().resourceIsURI();
+	}
+	
+	public boolean resourceIsFile() {
+		return this.getActiveResourceTab().resourceIsFile();
+	}
+	
+	public boolean resourceIsDirectory() {
+		return this.getActiveResourceTab().resourceIsDirectory();
 	}
 	
 	public Resource getSelectedResource() {
-		return ((IResourcePanel)(tabbedPane.getComponentAt(tabbedPane.getSelectedIndex()))).getSelectedResource();
+		return this.getActiveResourceTab().getSelectedResource();
+	}
+	
+	private IResourceTab getActiveResourceTab() {
+		return (IResourceTab)(tabbedPane.getComponentAt(tabbedPane.getSelectedIndex()));
+	}
+	
+	public void save() {
+		Context context = this.getActiveResourceTab().createContext();
+		this.parent.getCommandPanel().save(context);
 	}
 
 }

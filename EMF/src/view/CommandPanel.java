@@ -12,6 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import controller.CommandAPI;
 import tp2.tP2_LOG8430.CommandCodeResult;
+import tp2.tP2_LOG8430.Context;
 import tp2.tP2_LOG8430.ICommand;
 
 /**
@@ -205,9 +206,9 @@ public class CommandPanel extends JPanel implements Observer {
 	 */
 	public void updateEnableButtons() {
 		for (ICommand key : commandButtons.keySet()) {
-			if(parent.getResourcePanel().getSelectedFile() == null
-					|| (parent.getResourcePanel().getSelectedFile().isDirectory() && !key.isApplyOnFolder())
-					|| (!parent.getResourcePanel().getSelectedFile().isDirectory() && !key.isApplyOnFile())
+			if( (parent.getResourcePanel().resourceIsURI() && !key.isApplyOnURI())
+					|| (parent.getResourcePanel().resourceIsDirectory() && !key.isApplyOnFolder())
+					|| (parent.getResourcePanel().resourceIsFile() && !key.isApplyOnFile())
 			) {
 				commandButtons.get(key).setEnabled(false);
 			}
@@ -227,7 +228,7 @@ public class CommandPanel extends JPanel implements Observer {
 	private void sendCommand(final ICommand commandName) {
 		final JLabel textToUpdate = commandResults.get(commandName);
 		try {
-			controller.addCommandToQueue(commandName, this.parent.getResourcePanel().getSelectedFile().getPath());
+			controller.addCommandToQueue(commandName, this.parent.getResourcePanel().getResourceText());
 			if(textToUpdate != null) {
 				if(commandName.getCodeResult().equals(CommandCodeResult.SUCCESS)) {
 					textToUpdate.setText("<html><div>"+commandName.getResult()+"</div></html>");
@@ -280,5 +281,14 @@ public class CommandPanel extends JPanel implements Observer {
 		if(o instanceof CommandAPI){
 			updateCommands(controller.getCommands());
 		}
+	}
+	
+	public void save(Context context) {
+		context.setAutorun(checkboxAutorun.isSelected());
+		this.controller.saveContext(context);
+	}
+	
+	public void load(String path) {
+		this.controller.loadContext(path);
 	}
 }

@@ -20,20 +20,24 @@ import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
+import tp2.tP2_LOG8430.Context;
+import tp2.tP2_LOG8430.LocalContext;
+import tp2.tP2_LOG8430.LocalResource;
 import tp2.tP2_LOG8430.Resource;
+import tp2.tP2_LOG8430.impl.tP2_LOG8430FactoryImpl;
 
-public class LocalResourcePanel extends JPanel implements IResourcePanel {
+public class LocalResourceTab extends JPanel implements IResourceTab {
 	
 	private ResourcePanel parent;
 	private File root = null;
-	private File selectedFile = null;
+	private LocalResource selectedResource = tP2_LOG8430FactoryImpl.eINSTANCE.createLocalResource();
 	private JFileChooser filePicker;
 	private JTree tree;
 	private FileTreeModel treeModel;
 	private JScrollPane scroll;
 	private JButton btnFilePicker;
 
-	public LocalResourcePanel(ResourcePanel parent) {
+	public LocalResourceTab(ResourcePanel parent) {
 		this.parent = parent;
 		this.initialize();
 	}
@@ -49,7 +53,7 @@ public class LocalResourcePanel extends JPanel implements IResourcePanel {
 				TreePath path = e.getNewLeadSelectionPath();
 				if(path != null) {
 					System.out.println(path.getLastPathComponent().toString());
-					setSelectedFile(new File(path.getLastPathComponent().toString()));
+					setSelectedFile(path.getLastPathComponent().toString());
 				}
 			}
 		});
@@ -99,22 +103,55 @@ public class LocalResourcePanel extends JPanel implements IResourcePanel {
 			this.treeModel = new FileTreeModel(this.root);
 			this.tree.setModel(this.treeModel);
 		}
-	}
+	} 
 	
-	private void setSelectedFile(File file) {
-		this.selectedFile = file;
+	private void setSelectedFile(String path) {
+		this.selectedResource.setPath(path);
 		this.parent.resourceUpdated();
-	}
-	
-	// A supprimer quand getSelectedResource est implementee
-	public File getSelectedFile() {
-		return this.selectedFile;
 	}
 
 	@Override
-	public Resource getSelectedResource() {
-		// TODO Auto-generated method stub
-		return null;
+	public LocalResource getSelectedResource() {
+		return this.selectedResource;
+	}
+
+	@Override
+	public boolean resourceIsURI() {
+		return false;
+	}
+
+	@Override
+	public boolean resourceIsFile() {
+		return (this.resourcePathIsValid() && !new File(this.selectedResource.getPath()).isDirectory());
+	}
+
+	@Override
+	public boolean resourceIsDirectory() {
+		return (this.resourcePathIsValid() && new File(this.selectedResource.getPath()).isDirectory());
+	}
+	
+	private boolean resourcePathIsValid() {
+		return (this.selectedResource != null
+				&& this.selectedResource.getPath() != null
+				&& new File(this.selectedResource.getPath()).exists());
+	}
+
+	@Override
+	public String getResourceText() {
+		if(this.resourcePathIsValid()) {
+			return this.selectedResource.getPath();
+		}
+		else {
+			return null;
+		}
+	}
+
+	@Override
+	public LocalContext createContext() {
+		LocalContext context = tP2_LOG8430FactoryImpl.eINSTANCE.createLocalContext();
+		context.setLocalresource(this.selectedResource);
+		context.setRoot(root.getPath());
+		return context;
 	}
 
 }
