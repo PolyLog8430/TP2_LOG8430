@@ -22,8 +22,10 @@ import tp2.tP2_LOG8430.tP2_LOG8430Package;
 import tp2.tP2_LOG8430.impl.tP2_LOG8430FactoryImpl;
 
 /**
- * Controller class
- * Notify when the list of commands class change
+ * Controller class.
+ * Responsible for the instantiation of the commands (reading the persisted model),
+ * and the execution of the command.
+ *  
  */
 public class CommandAPI extends Observable {
 
@@ -85,10 +87,9 @@ public class CommandAPI extends Observable {
 	}
 
 	/**
-	 * Add command to thread queue
-	 * @param commandName the MetaCommand class
-	 * @param path Path of file/folder selected
-	 * @param response Observer to notify the result of command
+	 * Execute the commands sent from the View.
+	 * @param commandName the Command to be executed
+	 * @param path Path of file/folder selected, or the URI.
 	 * @throws Exception
 	 */
 	public void addCommandToQueue(ICommand command, String path) throws Exception {

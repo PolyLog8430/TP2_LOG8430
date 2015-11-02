@@ -6,6 +6,8 @@ package tp2.tP2_LOG8430;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>External Resource</b></em>'.
+ * contains information about the content of an external resource. 
+ * The current implementation contains only a subset of the all possible contents.
  * <!-- end-user-doc -->
  *
  * <p>

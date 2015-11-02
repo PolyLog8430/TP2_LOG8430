@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
+ * Interface for the different resources. 
  * A representation of the model object '<em><b>Resource</b></em>'.
  * <!-- end-user-doc -->
  *
