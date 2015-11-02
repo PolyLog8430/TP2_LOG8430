@@ -21,6 +21,7 @@ import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 import tp2.tP2_LOG8430.Context;
+import tp2.tP2_LOG8430.ExternalContext;
 import tp2.tP2_LOG8430.LocalContext;
 import tp2.tP2_LOG8430.LocalResource;
 import tp2.tP2_LOG8430.Resource;
@@ -30,7 +31,7 @@ public class LocalResourceTab extends JPanel implements IResourceTab {
 	
 	private ResourcePanel parent;
 	private File root = null;
-	private LocalResource selectedResource = tP2_LOG8430FactoryImpl.eINSTANCE.createLocalResource();
+	private LocalResource selectedResource = null;
 	private JFileChooser filePicker;
 	private JTree tree;
 	private FileTreeModel treeModel;
@@ -106,6 +107,9 @@ public class LocalResourceTab extends JPanel implements IResourceTab {
 	} 
 	
 	private void setSelectedFile(String path) {
+		if(this.selectedResource == null) {
+			selectedResource = tP2_LOG8430FactoryImpl.eINSTANCE.createLocalResource();
+		}
 		this.selectedResource.setPath(path);
 		this.parent.resourceUpdated();
 	}
@@ -152,6 +156,13 @@ public class LocalResourceTab extends JPanel implements IResourceTab {
 		context.setLocalresource(this.selectedResource);
 		context.setRoot(root.getPath());
 		return context;
+	}
+	
+	@Override
+	public void load(Context context) {
+		this.selectedResource = ((LocalContext)context).getLocalresource();
+		this.setRoot(new File(this.selectedResource.getPath()));
+		tree.getSelectionModel().setSelectionPath(new TreePath(this.selectedResource.getPath()));
 	}
 
 }

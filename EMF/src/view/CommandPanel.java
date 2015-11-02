@@ -114,8 +114,8 @@ public class CommandPanel extends JPanel implements Observer {
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addComponent(buttonPanel, GroupLayout.PREFERRED_SIZE, 224, GroupLayout.PREFERRED_SIZE)
-				.addComponent(resultPanel, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 224, GroupLayout.PREFERRED_SIZE)
+				.addComponent(buttonPanel, GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+				.addComponent(resultPanel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
 		);
 		buttonPanel.setLayout(new GridLayout(0, 1, 10, 10));
 		resultPanel.setLayout(new GridLayout(0, 1, 10, 10));
@@ -206,7 +206,8 @@ public class CommandPanel extends JPanel implements Observer {
 	 */
 	public void updateEnableButtons() {
 		for (ICommand key : commandButtons.keySet()) {
-			if( (parent.getResourcePanel().resourceIsURI() && !key.isApplyOnURI())
+			if( parent.getResourcePanel().getSelectedResource() == null
+					|| (parent.getResourcePanel().resourceIsURI() && !key.isApplyOnURI())
 					|| (parent.getResourcePanel().resourceIsDirectory() && !key.isApplyOnFolder())
 					|| (parent.getResourcePanel().resourceIsFile() && !key.isApplyOnFile())
 			) {
@@ -289,6 +290,8 @@ public class CommandPanel extends JPanel implements Observer {
 	}
 	
 	public void load(String path) {
-		this.controller.loadContext(path);
+		Context context = this.controller.loadContext(path);
+		this.parent.getResourcePanel().load(context);
+		System.out.println(context.getClass());
 	}
 }

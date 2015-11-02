@@ -99,5 +99,15 @@ public class ResourcePanel extends JPanel {
 		Context context = this.getActiveResourceTab().createContext();
 		this.parent.getCommandPanel().save(context);
 	}
+	
+	public void load(Context context) {
+		if(context instanceof tp2.tP2_LOG8430.impl.LocalContextImpl) {
+			this.tabbedPane.setSelectedIndex(0);
+		}
+		else if(context instanceof tp2.tP2_LOG8430.impl.ExternalContextImpl) {
+			this.tabbedPane.setSelectedIndex(1);
+		}
+		this.getActiveResourceTab().load(context);
+	}
 
 }

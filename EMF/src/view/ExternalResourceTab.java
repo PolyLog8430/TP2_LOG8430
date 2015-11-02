@@ -10,7 +10,6 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import tp2.tP2_LOG8430.Context;
 import tp2.tP2_LOG8430.ExternalContext;
 import tp2.tP2_LOG8430.ExternalResource;
-import tp2.tP2_LOG8430.LocalContext;
 import tp2.tP2_LOG8430.Resource;
 import tp2.tP2_LOG8430.impl.tP2_LOG8430FactoryImpl;
 import java.awt.event.ActionListener;
@@ -20,7 +19,7 @@ public class ExternalResourceTab extends JPanel implements IResourceTab {
 	
 	private ResourcePanel parent;
 	private JTextField textField;
-	private ExternalResource selectedResource = tP2_LOG8430FactoryImpl.eINSTANCE.createExternalResource();
+	private ExternalResource selectedResource = null;
 
 	public ExternalResourceTab(ResourcePanel parent) {
 		this.parent = parent;
@@ -62,6 +61,9 @@ public class ExternalResourceTab extends JPanel implements IResourceTab {
 	}
 	
 	private void setURI(String uri) {
+		if(this.selectedResource == null) {
+			selectedResource = tP2_LOG8430FactoryImpl.eINSTANCE.createExternalResource();
+		}
 		this.selectedResource.setUri(uri);
 		this.parent.resourceUpdated();
 	}
@@ -101,6 +103,12 @@ public class ExternalResourceTab extends JPanel implements IResourceTab {
 		ExternalContext context = tP2_LOG8430FactoryImpl.eINSTANCE.createExternalContext();
 		context.setExternalresource(this.selectedResource);
 		return context;
+	}
+
+	@Override
+	public void load(Context context) {
+		this.selectedResource = ((ExternalContext)context).getExternalresource();
+		textField.setText(this.selectedResource.getUri());
 	}
 
 }

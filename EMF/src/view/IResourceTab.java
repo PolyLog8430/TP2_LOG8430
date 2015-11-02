@@ -16,5 +16,7 @@ public interface IResourceTab {
 	public String getResourceText();
 	
 	public Context createContext();
+	
+	public void load(Context context);
 
 }
