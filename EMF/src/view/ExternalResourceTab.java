@@ -42,11 +42,11 @@ public class ExternalResourceTab extends JPanel implements IResourceTab {
 					.addContainerGap()
 					.addGroup(gl_externalResourcePanel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_externalResourcePanel.createSequentialGroup()
-							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+							.addComponent(lblEnterURI, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)
 							.addContainerGap())
 						.addGroup(gl_externalResourcePanel.createSequentialGroup()
-							.addComponent(lblEnterURI, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-							.addGap(199))))
+							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
+							.addGap(13))))
 		);
 		gl_externalResourcePanel.setVerticalGroup(
 			gl_externalResourcePanel.createParallelGroup(Alignment.LEADING)

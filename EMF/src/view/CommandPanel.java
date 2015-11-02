@@ -206,15 +206,15 @@ public class CommandPanel extends JPanel implements Observer {
 	 */
 	public void updateEnableButtons() {
 		for (ICommand key : commandButtons.keySet()) {
-			if( parent.getResourcePanel().getSelectedResource() == null
-					|| (parent.getResourcePanel().resourceIsURI() && !key.isApplyOnURI())
-					|| (parent.getResourcePanel().resourceIsDirectory() && !key.isApplyOnFolder())
-					|| (parent.getResourcePanel().resourceIsFile() && !key.isApplyOnFile())
+			if( parent.getResourcePanel().getSelectedResource() != null
+					&& ((parent.getResourcePanel().resourceIsURI() && key.isApplyOnURI())
+					|| (parent.getResourcePanel().resourceIsDirectory() && key.isApplyOnFolder())
+					|| (parent.getResourcePanel().resourceIsFile() && key.isApplyOnFile()))
 			) {
-				commandButtons.get(key).setEnabled(false);
+				commandButtons.get(key).setEnabled(true);
 			}
 			else {
-				commandButtons.get(key).setEnabled(true);
+				commandButtons.get(key).setEnabled(false);
 			}
 		}
 		if(checkboxAutorun.isSelected()) {
@@ -227,22 +227,21 @@ public class CommandPanel extends JPanel implements Observer {
 	 * @param commandName MetaCommand to send
 	 */
 	private void sendCommand(final ICommand commandName) {
-		final JLabel textToUpdate = commandResults.get(commandName);
 		try {
 			controller.addCommandToQueue(commandName, this.parent.getResourcePanel().getResourceText());
-			if(textToUpdate != null) {
+			if(commandResults.get(commandName) != null) {
 				if(commandName.getCodeResult().equals(CommandCodeResult.SUCCESS)) {
-					textToUpdate.setText("<html><div>"+commandName.getResult()+"</div></html>");
-					textToUpdate.setForeground(Color.BLACK);
+					commandResults.get(commandName).setText("<html><div>"+commandName.getResult()+"</div></html>");
+					commandResults.get(commandName).setForeground(Color.BLACK);
 				}
 				else{
-					textToUpdate.setText("<html><div>"+commandName.getResult()+"</div></html>");
-					textToUpdate.setForeground(Color.RED);
+					commandResults.get(commandName).setText("<html><div>"+commandName.getResult()+"</div></html>");
+					commandResults.get(commandName).setForeground(Color.RED);
 				}
 			}
 		} catch (Exception e) {
-			textToUpdate.setText(e.getMessage());
-			textToUpdate.setForeground(Color.RED);
+			commandResults.get(commandName).setText(e.getMessage());
+			commandResults.get(commandName).setForeground(Color.RED);
 		}
 	}
 

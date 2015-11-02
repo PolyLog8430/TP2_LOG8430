@@ -53,7 +53,6 @@ public class LocalResourceTab extends JPanel implements IResourceTab {
 			public void valueChanged(TreeSelectionEvent e) {
 				TreePath path = e.getNewLeadSelectionPath();
 				if(path != null) {
-					System.out.println(path.getLastPathComponent().toString());
 					setSelectedFile(path.getLastPathComponent().toString());
 				}
 			}

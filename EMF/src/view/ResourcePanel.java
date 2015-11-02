@@ -8,6 +8,8 @@ import javax.swing.JTree;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.TreeModelListener;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -37,8 +39,8 @@ public class ResourcePanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public ResourcePanel(PolyFilesUI parent) {
-		this.parent = parent;
+	public ResourcePanel(PolyFilesUI parentFrame) {
+		this.parent = parentFrame;
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		GroupLayout groupLayout = new GroupLayout(this);
@@ -63,7 +65,14 @@ public class ResourcePanel extends JPanel {
 		externalResourceTab = new ExternalResourceTab(this);
 		tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5>Ressource externe</body></html>", null, externalResourceTab, null);
 		
+		tabbedPane.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+	        	parent.getCommandPanel().updateEnableButtons();
+			}
+	    });
+		
 		setLayout(groupLayout);
+		
 	}
 	
 	public void resourceUpdated() {
