@@ -6,6 +6,9 @@ package tp2.tP2_LOG8430;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Local Resource</b></em>'.
+ * 
+ * contains the meta-data of a local resource. 
+ * The current implementation contains only a subset of the all possible meta-data.
  * <!-- end-user-doc -->
  *
  * <p>

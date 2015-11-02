@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Context</b></em>'.
+ * The context represent a UI state, including the selected resource and the autorun value.
  * <!-- end-user-doc -->
  *
  * <p>

@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
+ * Interface representing the Commands
  * A representation of the model object '<em><b>ICommand</b></em>'.
  * <!-- end-user-doc -->
  *

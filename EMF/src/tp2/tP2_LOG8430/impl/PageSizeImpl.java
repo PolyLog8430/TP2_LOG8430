@@ -2,7 +2,16 @@
  */
 package tp2.tP2_LOG8430.impl;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.eclipse.emf.ecore.EClass;
+
+import tp2.tP2_LOG8430.CommandCodeResult;
 import tp2.tP2_LOG8430.PageSize;
 import tp2.tP2_LOG8430.tP2_LOG8430Package;
 
@@ -38,7 +47,30 @@ public class PageSizeImpl extends ICommandImpl implements PageSize {
 	 */
 	@Override
 	public void execute(String resourceId) {
-		// TODO 
+		try {
+		    URL url = new URL(resourceId);
+		    URLConnection urlConnection = url.openConnection();
+		    urlConnection.connect();
+		    
+		    BufferedReader br = new BufferedReader(
+                    new InputStreamReader(urlConnection.getInputStream()));
+		    
+		    int size = 0;
+		    String tmp = br.readLine();
+		    // Read the html
+		    while (tmp != null) {
+		    	size += tmp.length();
+		    	tmp = br.readLine();
+		    }
+		    br.close();
+
+		    codeResult = CommandCodeResult.SUCCESS;
+		    result = String.valueOf(size);
+		} 
+		catch (Exception e) { 
+			codeResult = CommandCodeResult.ERROR;
+			result = e.getMessage();
+		} 
 	}
 
 } //PageSizeImpl

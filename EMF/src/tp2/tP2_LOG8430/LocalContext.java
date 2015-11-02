@@ -6,6 +6,7 @@ package tp2.tP2_LOG8430;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Local Context</b></em>'.
+ * Represent a context of a local resource tab.
  * <!-- end-user-doc -->
  *
  * <p>

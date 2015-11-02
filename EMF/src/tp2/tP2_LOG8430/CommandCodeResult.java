@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * <!-- begin-user-doc -->
  * A representation of the literals of the enumeration '<em><b>Command Code Result</b></em>',
  * and utility methods for working with them.
+ * Used to tell the view whether the result is a clean result or an error message.
  * <!-- end-user-doc -->
  * @see tp2.tP2_LOG8430.tP2_LOG8430Package#getCommandCodeResult()
  * @model
@@ -21,6 +22,7 @@ public enum CommandCodeResult implements Enumerator {
 	/**
 	 * The '<em><b>SUCCESS</b></em>' literal object.
 	 * <!-- begin-user-doc -->
+	 * The result is a clean result
 	 * <!-- end-user-doc -->
 	 * @see #SUCCESS_VALUE
 	 * @generated
@@ -31,6 +33,7 @@ public enum CommandCodeResult implements Enumerator {
 	/**
 	 * The '<em><b>ERROR</b></em>' literal object.
 	 * <!-- begin-user-doc -->
+	 * The result is an error message.
 	 * <!-- end-user-doc -->
 	 * @see #ERROR_VALUE
 	 * @generated
