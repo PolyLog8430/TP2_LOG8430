@@ -64,16 +64,8 @@ public class PolyFilesUI {
 		frame.setBounds(0, 0, 1024, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		File filePickerRoot = new File("../controller/persistedModel");
-		if(filePickerRoot.exists()) {
-			filePicker = new JFileChooser(filePickerRoot);
-		}
-		else {
-			filePicker = new JFileChooser();
-		}
+		filePicker = new JFileChooser();
 		filePicker.setFileSelectionMode(JFileChooser.FILES_ONLY);
-		FileNameExtensionFilter filter = new FileNameExtensionFilter(null, ".tp2_log8430");
-		filePicker.setFileFilter(filter);
 		
 		splitPane = new JSplitPane();
 		
