@@ -66,13 +66,13 @@ public class CommandPanel extends JPanel implements Observer {
 	 */
 	private void initialize() {
 		panel = new JPanel();
-		JButton clearBtn = new JButton("Réinitialiser");
+		JButton clearBtn = new JButton("Rï¿½initialiser");
 		clearBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				clearResults();
 			}
 		});
-		checkboxAutorun = new JCheckBox("Exécution automatique");
+		checkboxAutorun = new JCheckBox("Exï¿½cution automatique");
 		checkboxAutorun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				sendAllCommands();
@@ -230,18 +230,28 @@ public class CommandPanel extends JPanel implements Observer {
 		try {
 			controller.addCommandToQueue(commandName, this.parent.getResourcePanel().getResourceText());
 			if(commandResults.get(commandName) != null) {
-				if(commandName.getCodeResult().equals(CommandCodeResult.SUCCESS)) {
-					commandResults.get(commandName).setText("<html><div>"+commandName.getResult()+"</div></html>");
-					commandResults.get(commandName).setForeground(Color.BLACK);
-				}
-				else{
-					commandResults.get(commandName).setText("<html><div>"+commandName.getResult()+"</div></html>");
-					commandResults.get(commandName).setForeground(Color.RED);
-				}
+					SwingUtilities.invokeLater(new Runnable(){
+						@Override
+						public void run() {
+							if(commandName.getCodeResult().equals(CommandCodeResult.SUCCESS)) {
+								commandResults.get(commandName).setText("<html><div>"+commandName.getResult()+"</div></html>");
+								commandResults.get(commandName).setForeground(Color.BLACK);
+							}
+							else{
+								commandResults.get(commandName).setText("<html><div>"+commandName.getResult()+"</div></html>");
+								commandResults.get(commandName).setForeground(Color.RED);
+							}
+						}
+					});
 			}
 		} catch (Exception e) {
-			commandResults.get(commandName).setText(e.getMessage());
-			commandResults.get(commandName).setForeground(Color.RED);
+			SwingUtilities.invokeLater(new Runnable(){
+				@Override
+				public void run() {
+					commandResults.get(commandName).setText(e.getMessage());
+					commandResults.get(commandName).setForeground(Color.RED);
+				}
+			});
 		}
 	}
 
