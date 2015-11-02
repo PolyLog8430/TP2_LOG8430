@@ -6,9 +6,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.eclipse.emf.ecore.EClass;
 
 import tp2.tP2_LOG8430.CommandCodeResult;
