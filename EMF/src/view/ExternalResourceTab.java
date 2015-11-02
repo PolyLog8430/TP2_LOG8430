@@ -34,7 +34,7 @@ public class ExternalResourceTab extends JPanel implements IResourceTab {
 			}
 		});
 		textField.setColumns(10);	
-		JLabel lblEnterURI = new JLabel("Entrez l'URI de la ressource externe :");
+		JLabel lblEnterURI = new JLabel("Entrez l'URI de la ressource externe, puis appuyez sur Entrer :");
 		GroupLayout gl_externalResourcePanel = new GroupLayout(this);
 		gl_externalResourcePanel.setHorizontalGroup(
 			gl_externalResourcePanel.createParallelGroup(Alignment.LEADING)
