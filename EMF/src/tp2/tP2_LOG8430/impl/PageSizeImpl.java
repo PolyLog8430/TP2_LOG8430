@@ -65,7 +65,7 @@ public class PageSizeImpl extends ICommandImpl implements PageSize {
 		    br.close();
 
 		    codeResult = CommandCodeResult.SUCCESS;
-		    result = String.valueOf(size);
+		    result = String.valueOf(size) + " Characters";
 		} 
 		catch (Exception e) { 
 			codeResult = CommandCodeResult.ERROR;

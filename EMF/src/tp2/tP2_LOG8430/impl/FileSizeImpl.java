@@ -50,7 +50,7 @@ public class FileSizeImpl extends ICommandImpl implements FileSize {
 		}
 		else {
 			codeResult = CommandCodeResult.SUCCESS;
-			result = String.valueOf(file.getTotalSpace());
+			result = String.valueOf(file.getTotalSpace()) + "bytes";
 		}
 	}
 
