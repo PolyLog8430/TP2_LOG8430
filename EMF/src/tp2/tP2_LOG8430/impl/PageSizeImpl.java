@@ -69,7 +69,7 @@ public class PageSizeImpl extends ICommandImpl implements PageSize {
 		} 
 		catch (Exception e) { 
 			codeResult = CommandCodeResult.ERROR;
-			result = e.getMessage();
+			result = "Error: " + e.getMessage();
 		} 
 	}
 
