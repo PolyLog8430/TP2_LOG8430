@@ -84,7 +84,7 @@ public class PageTitleImpl extends ICommandImpl implements PageTitle {
 		} 
 		catch (Exception e) { 
 			codeResult = CommandCodeResult.ERROR;
-			result = "Error: " + e.getMessage();
+			result = "Error:  " + e.getMessage();
 		} 
 
 	}
